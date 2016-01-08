@@ -1,0 +1,187 @@
+/* FRONTEND LESS
+*********************************************/
+
+// Bootstrap
+@import "bootstrap/bootstrap.less";
+
+// Font Awesome
+@import "font-awesome/font-awesome.less";
+@fa-font-path: "../templates/frontend/fonts"; // path correction
+
+
+
+html {
+	overflow-y: scroll; /* scrollbar fix (prevent ugly left pull for lower content sites) */
+}
+
+body {
+	background: #FFFFFF;
+}
+
+#barra-topo {
+	background: #EEEEEE;
+	padding: 5px 0;
+}
+
+#topo {
+	width: 100%;
+	height: 50px;
+}
+
+#mapa-home {
+	width: 100%;
+	height: 500px;
+	position: relative;
+	padding:0;
+}
+#pesquisar {
+	position: absolute;
+	left:25%;
+	width: 50%;
+	height: 150px;
+	background-color: #EF7E4E;
+	bottom: 50px;
+	border-top: solid 5px #35706E;
+}
+
+#recomendados > div{
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+#anuncios > div{
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+#rodape {
+	background: #35706E;
+}
+
+#menu ul {
+	float:right;
+}
+
+#menu li{
+	float:left;
+}
+
+#menu li a {
+	color: #35706E;
+	font-weight: bold;
+}
+
+#mapa-home .custom {
+	width: 100%;
+	height: 100%;
+}
+
+#pesquisar h5 {
+	font-size: 42px;
+	color: #FFFFFF;
+	text-align: center;
+	font-style: italic;
+	margin-bottom: 25px;
+}
+
+#pesquisar select {
+	border: solid 1px #CCC;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	padding: 5px 0;
+	color: #999;
+	width: 20%;
+}
+
+#pesquisar input[type="text"] {
+	border: solid 1px #CCC;
+	border-left:0;
+	padding: 4px 10px;
+	color: #999;
+	width: 65%;
+}
+
+#pesquisar input[type="submit"] {
+	width: 15%;
+	padding: 4px 0;
+	background: #FFFFFF;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border: solid 1px #CCC;
+	border-left:0;
+	color: #999;
+}
+
+#recomendados h2, #anuncios h2 {
+	color: #35706E;
+	border-bottom: solid 3px #EF7E4E;
+	padding-bottom: 5px;
+}
+
+
+#recomendados img, #anuncios img {
+	width: 100%;
+	border: solid 1px #ccc;
+}
+
+.recomendados_titulo h3 {
+	font-size: 16px;
+	text-align: center;
+	color: #35706E;
+	font-weight: bold;
+}
+
+.recomendados_texto p{
+	text-align: justify;
+	font-size:12px;
+}
+
+.recomendados_info .preco{
+	font-size: 16px;
+	padding-top: 5px;
+	font-weight: bold;
+	color: #EF7E4E;
+}
+
+.col-md-3:hover {
+	background: #F0F0F0;
+}
+
+@media (min-width: 768px) {}
+
+@media (min-width: 992px) {}
+
+@media (min-width: 1170px) {}
+
+
+
+/* bootstrap search form fixes */
+
+#insidebar ul.unstyled {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#insidebar .form-control {
+	width: 100% !important;
+}
+
+.navbar div.search {
+	@media (max-width: 767px) {
+		padding: 0 0 20px 0;
+		width: 100%;
+	}
+}
+
+#mod-search-searchword {
+	@media (min-width: 768px) {
+		margin-top: 7px;
+	}
+}
+
+.form-group {
+	@media (min-width: 768px) {
+		padding: 5px 0;
+	}
+}
