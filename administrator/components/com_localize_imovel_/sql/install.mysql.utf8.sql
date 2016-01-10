@@ -1,0 +1,35 @@
+CREATE TABLE IF NOT EXISTS `#__localize_imovel` (
+`id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+
+`asset_id` INT(10) UNSIGNED NOT NULL DEFAULT '0',
+
+`ordering` INT(11)  NOT NULL ,
+`state` TINYINT(1)  NOT NULL ,
+`checked_out` INT(11)  NOT NULL ,
+`checked_out_time` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00',
+`created_by` INT(11)  NOT NULL ,
+`nome` VARCHAR(255)  NOT NULL ,
+`valor` VARCHAR(255)  NOT NULL ,
+`imagem1` VARCHAR(255)  NOT NULL ,
+`legenda_img1` VARCHAR(255)  NOT NULL ,
+`imagem2` VARCHAR(255)  NOT NULL ,
+`legenda_img2` VARCHAR(255)  NOT NULL ,
+`imagem3` VARCHAR(255)  NOT NULL ,
+`legenda_img3` VARCHAR(255)  NOT NULL ,
+`imagem4` VARCHAR(255)  NOT NULL ,
+`legenda_img4` VARCHAR(255)  NOT NULL ,
+`metragem` VARCHAR(255)  NOT NULL ,
+`num_quartos` VARCHAR(255)  NOT NULL ,
+`num_vagas` VARCHAR(255)  NOT NULL ,
+`etapa_obra` VARCHAR(255)  NOT NULL ,
+`etapa_negocio` VARCHAR(255)  NOT NULL ,
+`data_lancamento` DATE NOT NULL ,
+`telefone` VARCHAR(255)  NOT NULL ,
+`descricao` TEXT NOT NULL ,
+`construtora` TEXT NOT NULL ,
+`imobiliaria` INT NOT NULL ,
+`imobiliaria2` INT NOT NULL ,
+`caracteristicas` TEXT NOT NULL ,
+PRIMARY KEY (`id`)
+) DEFAULT COLLATE=utf8_general_ci;
+

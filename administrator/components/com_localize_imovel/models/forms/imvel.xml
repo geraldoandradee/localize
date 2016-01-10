@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset>
+
+              <field name="id" type="text" default="0" label="COM_LOCALIZE_IMOVEL_FORM_LBL_IMVEL_ID"
+            readonly="true" class="readonly"
+            description="JGLOBAL_FIELD_ID_DESC" /> 
+
+       <field name="created_by" type="createdby" default="" 
+            label="COM_LOCALIZE_IMOVEL_FORM_LBL_IMVEL_CREATED_BY"
+            description="COM_LOCALIZE_IMOVEL_FORM_DESC_IMVEL_CREATED_BY"  /> 
+
+       <field name="nome" type="text"
+                
+            label="COM_LOCALIZE_IMOVEL_FORM_LBL_IMVEL_NOME"
+            description="COM_LOCALIZE_IMOVEL_FORM_DESC_IMVEL_NOME" 
+                
+                
+                 required="true" 
+            menu_published="0"
+            filter="raw"
+            directory_stripext="true"
+            directory_hidenode="true"
+            directory_hidedefault="true"
+            alias_generator="2165606"
+            heading="h4"
+            close="true" /> 
+
+       <field name="valor" type="text"
+                
+            label="COM_LOCALIZE_IMOVEL_FORM_LBL_IMVEL_VALOR"
+            description="COM_LOCALIZE_IMOVEL_FORM_DESC_IMVEL_VALOR" 
+                
+                
+                 required="true"  /> 
+
+       <field name="imagem1" type="media"
+                
+            label="COM_LOCALIZE_IMOVEL_FORM_LBL_IMVEL_IMAGEM1"
+            description="COM_LOCALIZE_IMOVEL_FORM_DESC_IMVEL_IMAGEM1" 
+                
+                
+                 required="true" 
+            directory="imovel" /> 
+
+       <field name="legenda_img1" type="text"
+                
+            label="COM_LOCALIZE_IMOVEL_FORM_LBL_IMVEL_LEGENDA_IMG1"
+            description="COM_LOCALIZE_IMOVEL_FORM_DESC_IMVEL_LEGENDA_IMG1" 
+                
+                
+                 /> 
+
+       <field name="imagem2" type="media"
+                
+            label="COM_LOCALIZE_IMOVEL_FORM_LBL_IMVEL_IMAGEM2"
+            description="COM_LOCALIZE_IMOVEL_FORM_DESC_IMVEL_IMAGEM2" 
+                
+                
+                
+            menu_published="0"
+            filter="raw"
+            directory="imovel"
+            directory_stripext="true"
+            directory_hidenode="true"
+            directory_hidedefault="true"
+            alias_generator="2165610"
+            heading="h4"
+            close="true"
+            option_on="Yes"
+            option_off="Yes" /> 
+
+       <field name="legenda_img2" type="text"
+                
+            label="COM_LOCALIZE_IMOVEL_FORM_LBL_IMVEL_LEGENDA_IMG2"
+            description="COM_LOCALIZE_IMOVEL_FORM_DESC_IMVEL_LEGENDA_IMG2" 
+                
+                
+                
+            menu_published="0"
+            filter="raw"
+            directory_stripext="true"
+            directory_hidenode="true"
+            directory_hidedefault="true"
+            alias_generator="2165610"
+            heading="h4"
+            close="true"
+            option_on="Yes"
+            option_off="Yes" /> 
+
+       <field name="imagem3" type="media"
+                
+            label="COM_LOCALIZE_IMOVEL_FORM_LBL_IMVEL_IMAGEM3"
+            description="COM_LOCALIZE_IMOVEL_FORM_DESC_IMVEL_IMAGEM3" 
+                
+                
+                
+            menu_published="0"
+            filter="raw"
+            directory="imovel"
+            directory_stripext="true"
+            directory_hidenode="true"
+            directory_hidedefault="true"
+            alias_generator="2165610"
+            heading="h4"
+            close="true"
+            option_on="Yes"
+            option_off="Yes" /> 
+
+       <field name="legenda_img3" type="text"
+                
+            label="COM_LOCALIZE_IMOVEL_FORM_LBL_IMVEL_LEGENDA_IMG3"
+            description="COM_LOCALIZE_IMOVEL_FORM_DESC_IMVEL_LEGENDA_IMG3" 
+                
+                
+                
+            menu_published="0"
+            filter="raw"
+            directory_stripext="true"
+            directory_hidenode="true"
+            directory_hidedefault="true"
+            alias_generator="2165610"
+            heading="h4"
+            close="true"
+            option_on="Yes"
+            option_off="Yes" /> 
+
+       <field name="imagem4" type="media"
+                
+            label="COM_LOCALIZE_IMOVEL_FORM_LBL_IMVEL_IMAGEM4"
+            description="COM_LOCALIZE_IMOVEL_FORM_DESC_IMVEL_IMAGEM4" 
+                
+                
+                
+            menu_published="0"
+            filter="raw"
+            directory="imovel"
+            directory_stripext="true"
+            directory_hidenode="true"
+            directory_hidedefault="true"
+            alias_generator="2165610"
+            heading="h4"
+            close="true"
+            option_on="Yes"
+            option_off="Yes" /> 
+
+       <field name="legenda_img4" type="text"
+                
+            label="COM_LOCALIZE_IMOVEL_FORM_LBL_IMVEL_LEGENDA_IMG4"
+            description="COM_LOCALIZE_IMOVEL_FORM_DESC_IMVEL_LEGENDA_IMG4" 
+                
+                
+                
+            menu_published="0"
+            filter="raw"
+            directory_stripext="true"
+            directory_hidenode="true"
+            directory_hidedefault="true"
+            alias_generator="2165610"
+            heading="h4"
+            close="true"
+            option_on="Yes"
+            option_off="Yes" /> 
+
+       <field name="metragem" type="text"
+                
+            label="COM_LOCALIZE_IMOVEL_FORM_LBL_IMVEL_METRAGEM"
+            description="COM_LOCALIZE_IMOVEL_FORM_DESC_IMVEL_METRAGEM" 
+                
+                
+                 required="true"  /> 
+
+       <field name="num_quartos" type="list"
+                
+            label="COM_LOCALIZE_IMOVEL_FORM_LBL_IMVEL_NUM_QUARTOS"
+            description="COM_LOCALIZE_IMOVEL_FORM_DESC_IMVEL_NUM_QUARTOS" 
+                
+                
+                 required="true" >
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+        </field> 
+
+ 
+		<field name="filter_num_quartos" type="list" onchange="this.form.submit();">
+			<option value="">COM_LOCALIZE_IMOVEL_IMVEIS_NUM_QUARTOS_FILTER</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+		</field> 
+
+       <field name="num_vagas" type="list"
+                
+            label="COM_LOCALIZE_IMOVEL_FORM_LBL_IMVEL_NUM_VAGAS"
+            description="COM_LOCALIZE_IMOVEL_FORM_DESC_IMVEL_NUM_VAGAS" 
+                
+                
+                 required="true" 
+            menu_published="0"
+            filter="raw"
+            directory_stripext="true"
+            directory_hidenode="true"
+            directory_hidedefault="true"
+            alias_generator="2165610"
+            heading="h4"
+            close="true"
+            option_on="Yes"
+            option_off="Yes">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+        </field> 
+
+ 
+		<field name="filter_num_vagas" type="list" onchange="this.form.submit();">
+			<option value="">COM_LOCALIZE_IMOVEL_IMVEIS_NUM_VAGAS_FILTER</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+		</field> 
+
+       <field name="etapa_obra" type="list"
+                
+            label="COM_LOCALIZE_IMOVEL_FORM_LBL_IMVEL_ETAPA_OBRA"
+            description="COM_LOCALIZE_IMOVEL_FORM_DESC_IMVEL_ETAPA_OBRA" 
+                
+                
+                 required="true" 
+            menu_published="0"
+            filter="raw"
+            directory_stripext="true"
+            directory_hidenode="true"
+            directory_hidedefault="true"
+            alias_generator="2165610"
+            heading="h4"
+            close="true"
+            option_on="Yes"
+            option_off="Yes">
+                <option value="1">Planta</option>
+                <option value="2">Em construção</option>
+                <option value="3">Finalizado</option>
+                <option value="4">Entregue</option>
+        </field> 
+
+ 
+		<field name="filter_etapa_obra" type="list" onchange="this.form.submit();">
+			<option value="">COM_LOCALIZE_IMOVEL_IMVEIS_ETAPA_OBRA_FILTER</option>
+			<option value="1">Planta</option>
+			<option value="2">Em construção</option>
+			<option value="3">Finalizado</option>
+			<option value="4">Entregue</option>
+		</field> 
+
+       <field name="etapa_negocio" type="list"
+                
+            label="COM_LOCALIZE_IMOVEL_FORM_LBL_IMVEL_ETAPA_NEGOCIO"
+            description="COM_LOCALIZE_IMOVEL_FORM_DESC_IMVEL_ETAPA_NEGOCIO" 
+                
+                
+                 required="true" 
+            option_on="Yes"
+            option_off="Yes">
+                <option value="1">Comprar</option>
+                <option value="2">Alugar</option>
+        </field> 
+
+ 
+		<field name="filter_etapa_negocio" type="list" onchange="this.form.submit();">
+			<option value="">COM_LOCALIZE_IMOVEL_IMVEIS_ETAPA_NEGOCIO_FILTER</option>
+			<option value="1">Comprar</option>
+			<option value="2">Alugar</option>
+		</field> 
+
+       <field name="data_lancamento" type="calendar"
+                
+            label="COM_LOCALIZE_IMOVEL_FORM_LBL_IMVEL_DATA_LANCAMENTO"
+            description="COM_LOCALIZE_IMOVEL_FORM_DESC_IMVEL_DATA_LANCAMENTO" 
+                
+                
+                 required="true"  /> 
+
+       <field name="telefone" type="tel"
+                
+            label="COM_LOCALIZE_IMOVEL_FORM_LBL_IMVEL_TELEFONE"
+            description="COM_LOCALIZE_IMOVEL_FORM_DESC_IMVEL_TELEFONE" 
+                
+                
+                 /> 
+
+       <field name="descricao" type="editor"
+                
+            label="COM_LOCALIZE_IMOVEL_FORM_LBL_IMVEL_DESCRICAO"
+            description="COM_LOCALIZE_IMOVEL_FORM_DESC_IMVEL_DESCRICAO" 
+                
+                
+                 required="true"  /> 
+
+ <field name="construtora" type="foreignkey" class="inputbox"
+            label="COM_LOCALIZE_IMOVEL_FORM_LBL_IMVEL_CONSTRUTORA"
+            description="COM_LOCALIZE_IMOVEL_FORM_DESC_IMVEL_CONSTRUTORA" input_type="list" table="#__localize_empresa" key_field="id" value_field="nome"  required="true"  multiple = "multiple"/> 
+
+       <field name="filter_construtora" type="sql" class="inputbox"
+            onchange="this.form.submit();" translate="true"
+            query="SELECT 0 AS `id`, 'COM_LOCALIZE_IMOVEL_IMVEIS_CONSTRUTORA_FILTER_DEFAULT_OPTION' AS `val` UNION SELECT `id`, `nome` AS val FROM #__localize_empresa" key_field="id" value_field="val"
+             /> 
+
+       
+       <field name="imobiliaria" type="foreignkey" class="inputbox"
+            label="COM_LOCALIZE_IMOVEL_FORM_LBL_IMVEL_IMOBILIARIA"
+            description="COM_LOCALIZE_IMOVEL_FORM_DESC_IMVEL_IMOBILIARIA" input_type="list" table="#__localize_empresa" key_field="id" value_field="nome"  required="true"  multiple = "multiple"/> 
+
+       <field name="filter_imobiliaria" type="sql" class="inputbox"
+            onchange="this.form.submit();" translate="true"
+            query="SELECT 0 AS `id`, 'COM_LOCALIZE_IMOVEL_IMVEIS_IMOBILIARIA_FILTER_DEFAULT_OPTION' AS `val` UNION SELECT `id`, `nome` AS val FROM #__localize_empresa" key_field="id" value_field="val"
+             /> 
+       
+<field name="imobiliaria2" type="foreignkey" class="inputbox"
+            label="COM_LOCALIZE_IMOVEL_FORM_LBL_IMVEL_IMOBILIARIA2"
+            description="COM_LOCALIZE_IMOVEL_FORM_DESC_IMVEL_IMOBILIARIA2" input_type="list" table="#__localize_empresa" key_field="id" value_field="nome"   multiple = "multiple"/> 
+
+       <field name="filter_imobiliaria2" type="sql" class="inputbox"
+            onchange="this.form.submit();" translate="true"
+            query="SELECT 0 AS `id`, 'COM_LOCALIZE_IMOVEL_IMVEIS_IMOBILIARIA2_FILTER_DEFAULT_OPTION' AS `val` UNION SELECT `id`, `nome` AS val FROM #__localize_empresa" key_field="id" value_field="val"
+             /> 
+
+
+ 
+		<field name="caracteristicas" type="tag" mode="ajax" label="Características" description="" multiple="true" custom="deny" required="true" /> 
+
+         <field
+        name="state"
+        type="list"
+        label="JSTATUS"
+        description="JFIELD_PUBLISHED_DESC"
+        class="inputbox"
+        size="1"
+        default="1">
+        <option value="1">JPUBLISHED</option>
+        <option value="0">JUNPUBLISHED</option>
+        <option value="2">JARCHIVED</option>
+        <option value="-2">JTRASHED</option>
+    </field> 
+
+                        <field name="checked_out" type="hidden" filter="unset" />
+        <field name="checked_out_time" type="hidden" filter="unset" /> 
+
+ </fieldset> 
+
+ <fieldset
+                        name="accesscontrol">
+                       <field name="asset_id" type="hidden" filter="unset" />
+                       <field name="rules"
+                            type="rules"
+                            label="JFIELD_RULES_LABEL"
+                            translate_label="false"
+                            filter="rules"
+                            validate="rules"
+                            class="inputbox"
+                            component="com_localize_imovel"
+                            section="imvel"
+                        />
+
+	</fieldset>
+
+</form>

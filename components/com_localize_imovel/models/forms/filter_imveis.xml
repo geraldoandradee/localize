@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fields name="filter">
+        <field name="search" type="text" hint="COM_LOCALIZE_IMOVEL_SEARCH_FILTER_SUBMIT"
+               label="COM_USERS_FILTER_SEARCH_DESC"
+               class="js-stools-search-string" />
+
+        
+		<field name="num_quartos" type="list" onchange="this.form.submit();">
+		<option value="">COM_LOCALIZE_IMOVEL_IMVEIS_NUM_QUARTOS_FILTER</option>
+		<option value="1">COM_LOCALIZE_IMOVEL_IMVEIS_NUM_QUARTOS_OPTION_1</option>
+		<option value="2">COM_LOCALIZE_IMOVEL_IMVEIS_NUM_QUARTOS_OPTION_2</option>
+		<option value="3">COM_LOCALIZE_IMOVEL_IMVEIS_NUM_QUARTOS_OPTION_3</option>
+		<option value="4">COM_LOCALIZE_IMOVEL_IMVEIS_NUM_QUARTOS_OPTION_4</option>
+		<option value="5">COM_LOCALIZE_IMOVEL_IMVEIS_NUM_QUARTOS_OPTION_5</option>
+		</field> 
+
+ 
+		<field name="num_vagas" type="list" onchange="this.form.submit();">
+		<option value="">COM_LOCALIZE_IMOVEL_IMVEIS_NUM_VAGAS_FILTER</option>
+		<option value="1">COM_LOCALIZE_IMOVEL_IMVEIS_NUM_VAGAS_OPTION_1</option>
+		<option value="2">COM_LOCALIZE_IMOVEL_IMVEIS_NUM_VAGAS_OPTION_2</option>
+		<option value="3">COM_LOCALIZE_IMOVEL_IMVEIS_NUM_VAGAS_OPTION_3</option>
+		<option value="4">COM_LOCALIZE_IMOVEL_IMVEIS_NUM_VAGAS_OPTION_4</option>
+		<option value="5">COM_LOCALIZE_IMOVEL_IMVEIS_NUM_VAGAS_OPTION_5</option>
+		</field> 
+
+ 
+		<field name="etapa_obra" type="list" onchange="this.form.submit();">
+		<option value="">COM_LOCALIZE_IMOVEL_IMVEIS_ETAPA_OBRA_FILTER</option>
+		<option value="1">COM_LOCALIZE_IMOVEL_IMVEIS_ETAPA_OBRA_OPTION_1</option>
+		<option value="2">COM_LOCALIZE_IMOVEL_IMVEIS_ETAPA_OBRA_OPTION_2</option>
+		<option value="3">COM_LOCALIZE_IMOVEL_IMVEIS_ETAPA_OBRA_OPTION_3</option>
+		<option value="4">COM_LOCALIZE_IMOVEL_IMVEIS_ETAPA_OBRA_OPTION_4</option>
+		</field> 
+
+ 
+		<field name="etapa_negocio" type="list" onchange="this.form.submit();">
+		<option value="">COM_LOCALIZE_IMOVEL_IMVEIS_ETAPA_NEGOCIO_FILTER</option>
+		<option value="1">COM_LOCALIZE_IMOVEL_IMVEIS_ETAPA_NEGOCIO_OPTION_1</option>
+		<option value="2">COM_LOCALIZE_IMOVEL_IMVEIS_ETAPA_NEGOCIO_OPTION_2</option>
+		</field> 
+
+ 
+		<!-- Keep "_dateformat" suffix for date validation on form submit -->
+		<field name="data_lancamento_from_dateformat" type="calendar" label="" />
+		<!-- Keep "_dateformat" suffix for date validation on form submit -->
+		<field name="data_lancamento_to_dateformat" type="calendar" label="" />
+		<field value="Submit" type="submit" for="data_lancamento" onclick="this.form.submit();" /> 
+
+ <field name="construtora" type="sql" class="inputbox" onchange="this.form.submit();"
+                                    query="SELECT '' AS `id`, '- Please select Construtora -' AS `nome` UNION SELECT `id`, `nome` FROM `#__localize_imovel`" key_field="id" value_field="nome"/> 
+
+ <field name="imobiliaria" type="sql" class="inputbox" onchange="this.form.submit();"
+                                    query="SELECT '' AS `construtora`, '- Please select Imobiliária -' AS `id` UNION SELECT `construtora`, `id` FROM `#__localize_imovel`" key_field="construtora" value_field="id"/> 
+
+ <field name="imobiliaria2" type="sql" class="inputbox" onchange="this.form.submit();"
+                                    query="SELECT '' AS `construtora`, '- Please select Imobiliária 2 -' AS `id` UNION SELECT `construtora`, `id` FROM `#__localize_imovel`" key_field="construtora" value_field="id"/>
+
+    </fields>
+</form>

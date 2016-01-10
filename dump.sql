@@ -1,8 +1,8 @@
 -- --------------------------------------------------------
--- Host:                         localhost
--- Server version:               5.6.17 - MySQL Community Server (GPL)
--- Server OS:                    Win64
--- HeidiSQL Version:             9.3.0.4984
+-- Servidor:                     localhost
+-- Versão do servidor:           5.6.23-log - MySQL Community Server (GPL)
+-- OS do Servidor:               Win32
+-- HeidiSQL Versão:              9.1.0.4904
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -10,12 +10,7 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
--- Dumping database structure for localize
-CREATE DATABASE IF NOT EXISTS `localize` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `localize`;
-
-
--- Dumping structure for table localize.qtdpv_assets
+-- Copiando estrutura para tabela localize.qtdpv_assets
 CREATE TABLE IF NOT EXISTS `qtdpv_assets` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
   `parent_id` int(11) NOT NULL DEFAULT '0' COMMENT 'Nested set parent.',
@@ -29,12 +24,12 @@ CREATE TABLE IF NOT EXISTS `qtdpv_assets` (
   UNIQUE KEY `idx_asset_name` (`name`),
   KEY `idx_lft_rgt` (`lft`,`rgt`),
   KEY `idx_parent_id` (`parent_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_assets: ~55 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_assets: ~55 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_assets` DISABLE KEYS */;
 INSERT INTO `qtdpv_assets` (`id`, `parent_id`, `lft`, `rgt`, `level`, `name`, `title`, `rules`) VALUES
-	(1, 0, 0, 109, 0, 'root.1', 'Root Asset', '{"core.login.site":{"6":1,"2":1},"core.login.admin":{"6":1},"core.login.offline":{"6":1},"core.admin":{"8":1},"core.manage":{"7":1},"core.create":{"6":1,"3":1},"core.delete":{"6":1},"core.edit":{"6":1,"4":1},"core.edit.state":{"6":1,"5":1},"core.edit.own":{"6":1,"3":1}}'),
+	(1, 0, 0, 111, 0, 'root.1', 'Root Asset', '{"core.login.site":{"6":1,"2":1},"core.login.admin":{"6":1},"core.login.offline":{"6":1},"core.admin":{"8":1},"core.manage":{"7":1},"core.create":{"6":1,"3":1},"core.delete":{"6":1},"core.edit":{"6":1,"4":1},"core.edit.state":{"6":1,"5":1},"core.edit.own":{"6":1,"3":1}}'),
 	(2, 1, 1, 2, 1, 'com_admin', 'com_admin', '{}'),
 	(3, 1, 3, 6, 1, 'com_banners', 'com_banners', '{"core.admin":{"7":1},"core.manage":{"6":1},"core.create":[],"core.delete":[],"core.edit":[],"core.edit.state":[]}'),
 	(4, 1, 7, 8, 1, 'com_cache', 'com_cache', '{"core.admin":{"7":1},"core.manage":{"7":1}}'),
@@ -88,11 +83,12 @@ INSERT INTO `qtdpv_assets` (`id`, `parent_id`, `lft`, `rgt`, `level`, `name`, `t
 	(54, 1, 107, 108, 1, 'com_localize_empresa', 'com_localize_empresa', '{}'),
 	(55, 18, 70, 71, 2, 'com_modules.module.87', 'Logotipo', '{"core.delete":{"6":1},"core.edit":{"6":1,"4":1},"core.edit.state":{"6":1,"5":1},"module.edit.frontend":[]}'),
 	(56, 18, 72, 73, 2, 'com_modules.module.88', 'Mapa Home', '{"core.delete":{"6":1},"core.edit":{"6":1,"4":1},"core.edit.state":{"6":1,"5":1},"module.edit.frontend":[]}'),
-	(57, 18, 74, 75, 2, 'com_modules.module.89', 'Pesquisar', '{"core.delete":{"6":1},"core.edit":{"6":1,"4":1},"core.edit.state":{"6":1,"5":1},"module.edit.frontend":[]}');
+	(57, 18, 74, 75, 2, 'com_modules.module.89', 'Pesquisar', '{"core.delete":{"6":1},"core.edit":{"6":1,"4":1},"core.edit.state":{"6":1,"5":1},"module.edit.frontend":[]}'),
+	(58, 1, 109, 110, 1, 'com_localize_imovel', 'com_localize_imovel', '{}');
 /*!40000 ALTER TABLE `qtdpv_assets` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_associations
+-- Copiando estrutura para tabela localize.qtdpv_associations
 CREATE TABLE IF NOT EXISTS `qtdpv_associations` (
   `id` int(11) NOT NULL COMMENT 'A reference to the associated item.',
   `context` varchar(50) NOT NULL COMMENT 'The context of the associated item.',
@@ -101,12 +97,12 @@ CREATE TABLE IF NOT EXISTS `qtdpv_associations` (
   KEY `idx_key` (`key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_associations: ~0 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_associations: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_associations` DISABLE KEYS */;
 /*!40000 ALTER TABLE `qtdpv_associations` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_banners
+-- Copiando estrutura para tabela localize.qtdpv_banners
 CREATE TABLE IF NOT EXISTS `qtdpv_banners` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `cid` int(11) NOT NULL DEFAULT '0',
@@ -150,12 +146,12 @@ CREATE TABLE IF NOT EXISTS `qtdpv_banners` (
   KEY `idx_language` (`language`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_banners: ~0 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_banners: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_banners` DISABLE KEYS */;
 /*!40000 ALTER TABLE `qtdpv_banners` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_banner_clients
+-- Copiando estrutura para tabela localize.qtdpv_banner_clients
 CREATE TABLE IF NOT EXISTS `qtdpv_banner_clients` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL DEFAULT '',
@@ -176,12 +172,12 @@ CREATE TABLE IF NOT EXISTS `qtdpv_banner_clients` (
   KEY `idx_metakey_prefix` (`metakey_prefix`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_banner_clients: ~0 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_banner_clients: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_banner_clients` DISABLE KEYS */;
 /*!40000 ALTER TABLE `qtdpv_banner_clients` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_banner_tracks
+-- Copiando estrutura para tabela localize.qtdpv_banner_tracks
 CREATE TABLE IF NOT EXISTS `qtdpv_banner_tracks` (
   `track_date` datetime NOT NULL,
   `track_type` int(10) unsigned NOT NULL,
@@ -193,12 +189,12 @@ CREATE TABLE IF NOT EXISTS `qtdpv_banner_tracks` (
   KEY `idx_banner_id` (`banner_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_banner_tracks: ~0 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_banner_tracks: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_banner_tracks` DISABLE KEYS */;
 /*!40000 ALTER TABLE `qtdpv_banner_tracks` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_categories
+-- Copiando estrutura para tabela localize.qtdpv_categories
 CREATE TABLE IF NOT EXISTS `qtdpv_categories` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `asset_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'FK to the #__assets table.',
@@ -237,7 +233,7 @@ CREATE TABLE IF NOT EXISTS `qtdpv_categories` (
   KEY `idx_language` (`language`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_categories: ~6 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_categories: ~6 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_categories` DISABLE KEYS */;
 INSERT INTO `qtdpv_categories` (`id`, `asset_id`, `parent_id`, `lft`, `rgt`, `level`, `path`, `extension`, `title`, `alias`, `note`, `description`, `published`, `checked_out`, `checked_out_time`, `access`, `params`, `metadesc`, `metakey`, `metadata`, `created_user_id`, `created_time`, `modified_user_id`, `modified_time`, `hits`, `language`, `version`) VALUES
 	(1, 0, 0, 0, 11, 0, '', 'system', 'ROOT', 'root', '', '', 1, 0, '0000-00-00 00:00:00', 1, '{}', '', '', '{}', 42, '2011-01-01 00:00:01', 0, '0000-00-00 00:00:00', 0, '*', 1),
@@ -249,7 +245,7 @@ INSERT INTO `qtdpv_categories` (`id`, `asset_id`, `parent_id`, `lft`, `rgt`, `le
 /*!40000 ALTER TABLE `qtdpv_categories` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_contact_details
+-- Copiando estrutura para tabela localize.qtdpv_contact_details
 CREATE TABLE IF NOT EXISTS `qtdpv_contact_details` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL DEFAULT '',
@@ -305,12 +301,12 @@ CREATE TABLE IF NOT EXISTS `qtdpv_contact_details` (
   KEY `idx_xreference` (`xreference`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_contact_details: ~0 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_contact_details: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_contact_details` DISABLE KEYS */;
 /*!40000 ALTER TABLE `qtdpv_contact_details` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_content
+-- Copiando estrutura para tabela localize.qtdpv_content
 CREATE TABLE IF NOT EXISTS `qtdpv_content` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `asset_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'FK to the #__assets table.',
@@ -353,12 +349,12 @@ CREATE TABLE IF NOT EXISTS `qtdpv_content` (
   KEY `idx_xreference` (`xreference`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_content: ~0 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_content: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_content` DISABLE KEYS */;
 /*!40000 ALTER TABLE `qtdpv_content` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_contentitem_tag_map
+-- Copiando estrutura para tabela localize.qtdpv_contentitem_tag_map
 CREATE TABLE IF NOT EXISTS `qtdpv_contentitem_tag_map` (
   `type_alias` varchar(255) NOT NULL DEFAULT '',
   `core_content_id` int(10) unsigned NOT NULL COMMENT 'PK from the core content table',
@@ -374,24 +370,24 @@ CREATE TABLE IF NOT EXISTS `qtdpv_contentitem_tag_map` (
   KEY `idx_core_content_id` (`core_content_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Maps items from content tables to tags';
 
--- Dumping data for table localize.qtdpv_contentitem_tag_map: ~0 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_contentitem_tag_map: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_contentitem_tag_map` DISABLE KEYS */;
 /*!40000 ALTER TABLE `qtdpv_contentitem_tag_map` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_content_frontpage
+-- Copiando estrutura para tabela localize.qtdpv_content_frontpage
 CREATE TABLE IF NOT EXISTS `qtdpv_content_frontpage` (
   `content_id` int(11) NOT NULL DEFAULT '0',
   `ordering` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`content_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_content_frontpage: ~0 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_content_frontpage: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_content_frontpage` DISABLE KEYS */;
 /*!40000 ALTER TABLE `qtdpv_content_frontpage` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_content_rating
+-- Copiando estrutura para tabela localize.qtdpv_content_rating
 CREATE TABLE IF NOT EXISTS `qtdpv_content_rating` (
   `content_id` int(11) NOT NULL DEFAULT '0',
   `rating_sum` int(10) unsigned NOT NULL DEFAULT '0',
@@ -400,12 +396,12 @@ CREATE TABLE IF NOT EXISTS `qtdpv_content_rating` (
   PRIMARY KEY (`content_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_content_rating: ~0 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_content_rating: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_content_rating` DISABLE KEYS */;
 /*!40000 ALTER TABLE `qtdpv_content_rating` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_content_types
+-- Copiando estrutura para tabela localize.qtdpv_content_types
 CREATE TABLE IF NOT EXISTS `qtdpv_content_types` (
   `type_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `type_title` varchar(255) NOT NULL DEFAULT '',
@@ -419,7 +415,7 @@ CREATE TABLE IF NOT EXISTS `qtdpv_content_types` (
   KEY `idx_alias` (`type_alias`)
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_content_types: ~13 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_content_types: ~13 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_content_types` DISABLE KEYS */;
 INSERT INTO `qtdpv_content_types` (`type_id`, `type_title`, `type_alias`, `table`, `rules`, `field_mappings`, `router`, `content_history_options`) VALUES
 	(1, 'Article', 'com_content.article', '{"special":{"dbtable":"#__content","key":"id","type":"Content","prefix":"JTable","config":"array()"},"common":{"dbtable":"#__ucm_content","key":"ucm_id","type":"Corecontent","prefix":"JTable","config":"array()"}}', '', '{"common":{"core_content_item_id":"id","core_title":"title","core_state":"state","core_alias":"alias","core_created_time":"created","core_modified_time":"modified","core_body":"introtext", "core_hits":"hits","core_publish_up":"publish_up","core_publish_down":"publish_down","core_access":"access", "core_params":"attribs", "core_featured":"featured", "core_metadata":"metadata", "core_language":"language", "core_images":"images", "core_urls":"urls", "core_version":"version", "core_ordering":"ordering", "core_metakey":"metakey", "core_metadesc":"metadesc", "core_catid":"catid", "core_xreference":"xreference", "asset_id":"asset_id"}, "special":{"fulltext":"fulltext"}}', 'ContentHelperRoute::getArticleRoute', '{"formFile":"administrator\\/components\\/com_content\\/models\\/forms\\/article.xml", "hideFields":["asset_id","checked_out","checked_out_time","version"],"ignoreChanges":["modified_by", "modified", "checked_out", "checked_out_time", "version", "hits"],"convertToInt":["publish_up", "publish_down", "featured", "ordering"],"displayLookup":[{"sourceColumn":"catid","targetTable":"#__categories","targetColumn":"id","displayColumn":"title"},{"sourceColumn":"created_by","targetTable":"#__users","targetColumn":"id","displayColumn":"name"},{"sourceColumn":"access","targetTable":"#__viewlevels","targetColumn":"id","displayColumn":"title"},{"sourceColumn":"modified_by","targetTable":"#__users","targetColumn":"id","displayColumn":"name"} ]}'),
@@ -438,18 +434,18 @@ INSERT INTO `qtdpv_content_types` (`type_id`, `type_title`, `type_alias`, `table
 /*!40000 ALTER TABLE `qtdpv_content_types` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_core_log_searches
+-- Copiando estrutura para tabela localize.qtdpv_core_log_searches
 CREATE TABLE IF NOT EXISTS `qtdpv_core_log_searches` (
   `search_term` varchar(128) NOT NULL DEFAULT '',
   `hits` int(10) unsigned NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_core_log_searches: ~0 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_core_log_searches: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_core_log_searches` DISABLE KEYS */;
 /*!40000 ALTER TABLE `qtdpv_core_log_searches` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_extensions
+-- Copiando estrutura para tabela localize.qtdpv_extensions
 CREATE TABLE IF NOT EXISTS `qtdpv_extensions` (
   `extension_id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
@@ -472,9 +468,9 @@ CREATE TABLE IF NOT EXISTS `qtdpv_extensions` (
   KEY `element_clientid` (`element`,`client_id`),
   KEY `element_folder_clientid` (`element`,`folder`,`client_id`),
   KEY `extension` (`type`,`element`,`folder`,`client_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=707 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=708 DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_extensions: ~132 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_extensions: ~138 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_extensions` DISABLE KEYS */;
 INSERT INTO `qtdpv_extensions` (`extension_id`, `name`, `type`, `element`, `folder`, `client_id`, `enabled`, `access`, `protected`, `manifest_cache`, `params`, `custom_data`, `system_data`, `checked_out`, `checked_out_time`, `ordering`, `state`) VALUES
 	(1, 'com_mailto', 'component', 'com_mailto', '', 0, 1, 1, 1, '{"name":"com_mailto","type":"component","creationDate":"April 2006","author":"Joomla! Project","copyright":"(C) 2005 - 2015 Open Source Matters. All rights reserved.\\t","authorEmail":"admin@joomla.org","authorUrl":"www.joomla.org","version":"3.0.0","description":"COM_MAILTO_XML_DESCRIPTION","group":"","filename":"mailto"}', '', '', '', 0, '0000-00-00 00:00:00', 0, 0),
@@ -509,7 +505,7 @@ INSERT INTO `qtdpv_extensions` (`extension_id`, `name`, `type`, `element`, `fold
 	(32, 'com_postinstall', 'component', 'com_postinstall', '', 1, 1, 1, 1, '{"name":"com_postinstall","type":"component","creationDate":"September 2013","author":"Joomla! Project","copyright":"(C) 2005 - 2015 Open Source Matters. All rights reserved.","authorEmail":"admin@joomla.org","authorUrl":"www.joomla.org","version":"3.2.0","description":"COM_POSTINSTALL_XML_DESCRIPTION","group":""}', '', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 	(101, 'SimplePie', 'library', 'simplepie', '', 0, 1, 1, 1, '{"name":"SimplePie","type":"library","creationDate":"2004","author":"SimplePie","copyright":"Copyright (c) 2004-2009, Ryan Parman and Geoffrey Sneddon","authorEmail":"","authorUrl":"http:\\/\\/simplepie.org\\/","version":"1.2","description":"LIB_SIMPLEPIE_XML_DESCRIPTION","group":"","filename":"simplepie"}', '', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 	(102, 'phputf8', 'library', 'phputf8', '', 0, 1, 1, 1, '{"name":"phputf8","type":"library","creationDate":"2006","author":"Harry Fuecks","copyright":"Copyright various authors","authorEmail":"hfuecks@gmail.com","authorUrl":"http:\\/\\/sourceforge.net\\/projects\\/phputf8","version":"0.5","description":"LIB_PHPUTF8_XML_DESCRIPTION","group":"","filename":"phputf8"}', '', '', '', 0, '0000-00-00 00:00:00', 0, 0),
-	(103, 'Joomla! Platform', 'library', 'joomla', '', 0, 1, 1, 1, '{"name":"Joomla! Platform","type":"library","creationDate":"2008","author":"Joomla! Project","copyright":"Copyright (C) 2005 - 2015 Open Source Matters. All rights reserved.","authorEmail":"admin@joomla.org","authorUrl":"http:\\/\\/www.joomla.org","version":"13.1","description":"LIB_JOOMLA_XML_DESCRIPTION","group":"","filename":"joomla"}', '{"mediaversion":"fcc767347c0113f331f6bdea1cca8ff2"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+	(103, 'Joomla! Platform', 'library', 'joomla', '', 0, 1, 1, 1, '{"name":"Joomla! Platform","type":"library","creationDate":"2008","author":"Joomla! Project","copyright":"Copyright (C) 2005 - 2015 Open Source Matters. All rights reserved.","authorEmail":"admin@joomla.org","authorUrl":"http:\\/\\/www.joomla.org","version":"13.1","description":"LIB_JOOMLA_XML_DESCRIPTION","group":"","filename":"joomla"}', '{"mediaversion":"1c84f98a29eda717cb94c566828307a9"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 	(104, 'IDNA Convert', 'library', 'idna_convert', '', 0, 1, 1, 1, '{"name":"IDNA Convert","type":"library","creationDate":"2004","author":"phlyLabs","copyright":"2004-2011 phlyLabs Berlin, http:\\/\\/phlylabs.de","authorEmail":"phlymail@phlylabs.de","authorUrl":"http:\\/\\/phlylabs.de","version":"0.8.0","description":"LIB_IDNA_XML_DESCRIPTION","group":"","filename":"idna_convert"}', '', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 	(105, 'FOF', 'library', 'fof', '', 0, 1, 1, 1, '{"name":"FOF","type":"library","creationDate":"2015-04-22 13:15:32","author":"Nicholas K. Dionysopoulos \\/ Akeeba Ltd","copyright":"(C)2011-2015 Nicholas K. Dionysopoulos","authorEmail":"nicholas@akeebabackup.com","authorUrl":"https:\\/\\/www.akeebabackup.com","version":"2.4.3","description":"LIB_FOF_XML_DESCRIPTION","group":"","filename":"fof"}', '', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 	(106, 'PHPass', 'library', 'phpass', '', 0, 1, 1, 1, '{"name":"PHPass","type":"library","creationDate":"2004-2006","author":"Solar Designer","copyright":"","authorEmail":"solar@openwall.com","authorUrl":"http:\\/\\/www.openwall.com\\/phpass\\/","version":"0.3","description":"LIB_PHPASS_XML_DESCRIPTION","group":"","filename":"phpass"}', '', '', '', 0, '0000-00-00 00:00:00', 0, 0),
@@ -608,17 +604,18 @@ INSERT INTO `qtdpv_extensions` (`extension_id`, `name`, `type`, `element`, `fold
 	(507, 'isis', 'template', 'isis', '', 1, 1, 1, 0, '{"name":"isis","type":"template","creationDate":"3\\/30\\/2012","author":"Kyle Ledbetter","copyright":"Copyright (C) 2005 - 2015 Open Source Matters, Inc. All rights reserved.","authorEmail":"admin@joomla.org","authorUrl":"","version":"1.0","description":"TPL_ISIS_XML_DESCRIPTION","group":"","filename":"templateDetails"}', '{"templateColor":"","logoFile":""}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 	(600, 'English (en-GB)', 'language', 'en-GB', '', 0, 1, 1, 1, '{"name":"English (en-GB)","type":"language","creationDate":"2013-03-07","author":"Joomla! Project","copyright":"Copyright (C) 2005 - 2015 Open Source Matters. All rights reserved.","authorEmail":"admin@joomla.org","authorUrl":"www.joomla.org","version":"3.4.3","description":"en-GB site language","group":""}', '', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 	(601, 'English (en-GB)', 'language', 'en-GB', '', 1, 1, 1, 1, '{"name":"English (en-GB)","type":"language","creationDate":"2013-03-07","author":"Joomla! Project","copyright":"Copyright (C) 2005 - 2015 Open Source Matters. All rights reserved.","authorEmail":"admin@joomla.org","authorUrl":"www.joomla.org","version":"3.4.3","description":"en-GB administrator language","group":""}', '', '', '', 0, '0000-00-00 00:00:00', 0, 0),
-	(700, 'files_joomla', 'file', 'joomla', '', 0, 1, 1, 1, '{"name":"files_joomla","type":"file","creationDate":"October 2015","author":"Joomla! Project","copyright":"(C) 2005 - 2015 Open Source Matters. All rights reserved","authorEmail":"admin@joomla.org","authorUrl":"www.joomla.org","version":"3.4.5","description":"FILES_JOOMLA_XML_DESCRIPTION","group":""}', '', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+	(700, 'files_joomla', 'file', 'joomla', '', 0, 1, 1, 1, '{"name":"files_joomla","type":"file","creationDate":"December 2015","author":"Joomla! Project","copyright":"(C) 2005 - 2015 Open Source Matters. All rights reserved","authorEmail":"admin@joomla.org","authorUrl":"www.joomla.org","version":"3.4.8","description":"FILES_JOOMLA_XML_DESCRIPTION","group":""}', '', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 	(701, 'com_localize_empresa', 'component', 'com_localize_empresa', '', 1, 1, 0, 0, '{"name":"com_localize_empresa","type":"component","creationDate":"2015-11-22","author":"Victor Bento","copyright":"Copyright (C) 2015. Todos os direitos reservados.","authorEmail":"vgb.info@gmail.com","authorUrl":"http:\\/\\/victorbento.com.br","version":"1.0.0","description":"Parte integrante do componente de recomenda\\u00e7\\u00e3o de im\\u00f3veis.","group":"","filename":"localize_empresa"}', '{}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 	(702, 'PortugusBrasileiropt-BR', 'language', 'pt-BR', '', 0, 1, 0, 0, '{"name":"Portugu\\u00eas Brasileiro (pt-BR)","type":"language","creationDate":"07 SEP 2015","author":"Equipe de Tradu\\u00e7\\u00e3o pt-BR","copyright":"Copyright (C) 2005 - 2015 Open Source Matters. Todos os Direitos reservados","authorEmail":"pt-br@joomlacarioca.com.br","authorUrl":"https:\\/\\/brasil.joomla.com","version":"3.4.4.1","description":"Idioma Portugu\\u00eas Brasileiro - Site","group":"","filename":"install"}', '{}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 	(703, 'PortugusBrasileiropt-BR', 'language', 'pt-BR', '', 1, 1, 0, 0, '{"name":"Portugu\\u00eas Brasileiro (pt-BR)","type":"language","creationDate":"07 SEP 2015","author":"Equipe de Tradu\\u00e7\\u00e3o pt-BR","copyright":"Copyright (C) 2005 - 2015 Open Source Matters. Todos os Direitos reservados","authorEmail":"pt-br@joomlacarioca.com.br","authorUrl":"http:\\/\\/brasil.joomla.com","version":"3.4.4.1","description":"Idioma Portugu\\u00eas Brasileiro - Administrador","group":"","filename":"install"}', '{}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
-	(704, 'Português Brasileiro (pt-BR)', 'package', 'pkg_pt-BR', '', 0, 1, 1, 0, '{"name":"Portugu\\u00eas Brasileiro (pt-BR)","type":"package","creationDate":"07 SEP 2015","author":"Equipe de Tradu\\u00e7\\u00e3o pt-BR","copyright":"Copyright (C) 2005 - 2015 Open Source Matters. Todos os Direitos Reservados","authorEmail":"pt-br@joomlacarioca.com.br","authorUrl":"http:\\/\\/brasil.joomla.com","version":"3.4.4.1","description":"<div style=\\"text-align:left;\\">\\n  <h2>Pacote de Idioma Portugu\\u00eas Brasileiro (pt-BR) completo para Joomla! 3.4.4 instalado com sucesso!<\\/h2>\\n  <h3>Vers\\u00e3o 3.4.4v1 <\\/h3>\\n  <p>Por favor, informe qualquer problema ou assunto relacionado encontrado na p\\u00e1gina <a href=\\"https:\\/\\/www.facebook.com\\/groups\\/traduzjoomla\\/\\" target=\\"_blank\\">Grupo Tradu\\u00e7\\u00f5es Joomla pt-BR<\\/a> no Facebook.<\\/p>\\n  <p>Traduzido pela <a href=\\"http:\\/\\/brasil.joomla.com\\/como-participar\\/9-traducao-no-projeto\\" target=\\"_blank\\">Equipe de Tradu\\u00e7\\u00e3o Portugu\\u00eas Brasileiro<\\/a>.<\\/p>\\n  <h2>Successfully installed the Full Brazilian Portugues (pt-BR) Language Pack for Joomla! 3.4.4<\\/h2>\\n  <h3>Version 3.4.4v1<\\/h3>\\n  <p>Please report any bugs or issues at the <a href=\\"https:\\/\\/www.facebook.com\\/groups\\/traduzjoomla\\/\\" target=\\"_blank\\">pt-BR Translation Group<\\/a> Facebook page.<\\/p>\\n  <p>Translated by the <a href=\\"http:\\/\\/brasil.joomla.com\\/como-participar\\/9-traducao-no-projeto\\" target=\\"_blank\\">Brazilian Portuguese Translation Team<\\/a>.<\\/p>\\n  <\\/div>","group":"","filename":"pkg_pt-BR"}', '{}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+	(704, 'PortuguÃªs Brasileiro (pt-BR)', 'package', 'pkg_pt-BR', '', 0, 1, 1, 0, '{"name":"Portugu\\u00eas Brasileiro (pt-BR)","type":"package","creationDate":"07 SEP 2015","author":"Equipe de Tradu\\u00e7\\u00e3o pt-BR","copyright":"Copyright (C) 2005 - 2015 Open Source Matters. Todos os Direitos Reservados","authorEmail":"pt-br@joomlacarioca.com.br","authorUrl":"http:\\/\\/brasil.joomla.com","version":"3.4.4.1","description":"<div style=\\"text-align:left;\\">\\n  <h2>Pacote de Idioma Portugu\\u00eas Brasileiro (pt-BR) completo para Joomla! 3.4.4 instalado com sucesso!<\\/h2>\\n  <h3>Vers\\u00e3o 3.4.4v1 <\\/h3>\\n  <p>Por favor, informe qualquer problema ou assunto relacionado encontrado na p\\u00e1gina <a href=\\"https:\\/\\/www.facebook.com\\/groups\\/traduzjoomla\\/\\" target=\\"_blank\\">Grupo Tradu\\u00e7\\u00f5es Joomla pt-BR<\\/a> no Facebook.<\\/p>\\n  <p>Traduzido pela <a href=\\"http:\\/\\/brasil.joomla.com\\/como-participar\\/9-traducao-no-projeto\\" target=\\"_blank\\">Equipe de Tradu\\u00e7\\u00e3o Portugu\\u00eas Brasileiro<\\/a>.<\\/p>\\n  <h2>Successfully installed the Full Brazilian Portugues (pt-BR) Language Pack for Joomla! 3.4.4<\\/h2>\\n  <h3>Version 3.4.4v1<\\/h3>\\n  <p>Please report any bugs or issues at the <a href=\\"https:\\/\\/www.facebook.com\\/groups\\/traduzjoomla\\/\\" target=\\"_blank\\">pt-BR Translation Group<\\/a> Facebook page.<\\/p>\\n  <p>Translated by the <a href=\\"http:\\/\\/brasil.joomla.com\\/como-participar\\/9-traducao-no-projeto\\" target=\\"_blank\\">Brazilian Portuguese Translation Team<\\/a>.<\\/p>\\n  <\\/div>","group":"","filename":"pkg_pt-BR"}', '{}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 	(705, 'plg_installer_webinstaller', 'plugin', 'webinstaller', 'installer', 0, 1, 1, 0, '{"name":"plg_installer_webinstaller","type":"plugin","creationDate":"18 December 2013","author":"Joomla! Project","copyright":"Copyright (C) 2013 Open Source Matters. All rights reserved.","authorEmail":"admin@joomla.org","authorUrl":"www.joomla.org","version":"1.0.5","description":"PLG_INSTALLER_WEBINSTALLER_XML_DESCRIPTION","group":"","filename":"webinstaller"}', '{"tab_position":"0"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
-	(706, 'frontend', 'template', 'frontend', '', 0, 1, 1, 0, '{"name":"frontend","type":"template","creationDate":"xxxx-xx-xx","author":"your name","copyright":"Copyright \\u00a9 xxxx example.com","authorEmail":"your.name@example.com","authorUrl":"http:\\/\\/www.example.com","version":"1.0.0","description":" \\n\\t\\t<h1>frontend<\\/h1>\\n\\t\\t<p>Created by <a href=\\"http:\\/\\/www.example.com\\" target=\\"_blank\\">your name | example.com<\\/a>.<\\/p>\\n\\t","group":"","filename":"templateDetails"}', '{"runless":"1"}', '', '', 0, '0000-00-00 00:00:00', 0, 0);
+	(706, 'frontend', 'template', 'frontend', '', 0, 1, 1, 0, '{"name":"frontend","type":"template","creationDate":"xxxx-xx-xx","author":"your name","copyright":"Copyright \\u00a9 xxxx example.com","authorEmail":"your.name@example.com","authorUrl":"http:\\/\\/www.example.com","version":"1.0.0","description":" \\n\\t\\t<h1>frontend<\\/h1>\\n\\t\\t<p>Created by <a href=\\"http:\\/\\/www.example.com\\" target=\\"_blank\\">your name | example.com<\\/a>.<\\/p>\\n\\t","group":"","filename":"templateDetails"}', '{"runless":"1"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+	(707, 'com_localize_imovel', 'component', 'com_localize_imovel', '', 1, 1, 0, 0, '{"name":"com_localize_imovel","type":"component","creationDate":"2015-12-07","author":"Victor Bento","copyright":"Copyright (C) 2015. Todos os direitos reservados.","authorEmail":"vgb.info@gmail.com","authorUrl":"http:\\/\\/victorbento.com.br","version":"CVS: 1.0.0","description":"","group":"","filename":"localize_imovel"}', '{}', '', '', 0, '0000-00-00 00:00:00', 0, 0);
 /*!40000 ALTER TABLE `qtdpv_extensions` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_finder_filters
+-- Copiando estrutura para tabela localize.qtdpv_finder_filters
 CREATE TABLE IF NOT EXISTS `qtdpv_finder_filters` (
   `filter_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
@@ -637,12 +634,12 @@ CREATE TABLE IF NOT EXISTS `qtdpv_finder_filters` (
   PRIMARY KEY (`filter_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_finder_filters: ~0 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_finder_filters: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_finder_filters` DISABLE KEYS */;
 /*!40000 ALTER TABLE `qtdpv_finder_filters` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_finder_links
+-- Copiando estrutura para tabela localize.qtdpv_finder_links
 CREATE TABLE IF NOT EXISTS `qtdpv_finder_links` (
   `link_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `url` varchar(255) NOT NULL,
@@ -672,12 +669,12 @@ CREATE TABLE IF NOT EXISTS `qtdpv_finder_links` (
   KEY `idx_published_sale` (`published`,`state`,`access`,`publish_start_date`,`publish_end_date`,`sale_price`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_finder_links: ~0 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_finder_links: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_finder_links` DISABLE KEYS */;
 /*!40000 ALTER TABLE `qtdpv_finder_links` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_finder_links_terms0
+-- Copiando estrutura para tabela localize.qtdpv_finder_links_terms0
 CREATE TABLE IF NOT EXISTS `qtdpv_finder_links_terms0` (
   `link_id` int(10) unsigned NOT NULL,
   `term_id` int(10) unsigned NOT NULL,
@@ -687,12 +684,12 @@ CREATE TABLE IF NOT EXISTS `qtdpv_finder_links_terms0` (
   KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_finder_links_terms0: ~0 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_finder_links_terms0: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_finder_links_terms0` DISABLE KEYS */;
 /*!40000 ALTER TABLE `qtdpv_finder_links_terms0` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_finder_links_terms1
+-- Copiando estrutura para tabela localize.qtdpv_finder_links_terms1
 CREATE TABLE IF NOT EXISTS `qtdpv_finder_links_terms1` (
   `link_id` int(10) unsigned NOT NULL,
   `term_id` int(10) unsigned NOT NULL,
@@ -702,12 +699,12 @@ CREATE TABLE IF NOT EXISTS `qtdpv_finder_links_terms1` (
   KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_finder_links_terms1: ~0 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_finder_links_terms1: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_finder_links_terms1` DISABLE KEYS */;
 /*!40000 ALTER TABLE `qtdpv_finder_links_terms1` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_finder_links_terms2
+-- Copiando estrutura para tabela localize.qtdpv_finder_links_terms2
 CREATE TABLE IF NOT EXISTS `qtdpv_finder_links_terms2` (
   `link_id` int(10) unsigned NOT NULL,
   `term_id` int(10) unsigned NOT NULL,
@@ -717,12 +714,12 @@ CREATE TABLE IF NOT EXISTS `qtdpv_finder_links_terms2` (
   KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_finder_links_terms2: ~0 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_finder_links_terms2: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_finder_links_terms2` DISABLE KEYS */;
 /*!40000 ALTER TABLE `qtdpv_finder_links_terms2` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_finder_links_terms3
+-- Copiando estrutura para tabela localize.qtdpv_finder_links_terms3
 CREATE TABLE IF NOT EXISTS `qtdpv_finder_links_terms3` (
   `link_id` int(10) unsigned NOT NULL,
   `term_id` int(10) unsigned NOT NULL,
@@ -732,12 +729,12 @@ CREATE TABLE IF NOT EXISTS `qtdpv_finder_links_terms3` (
   KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_finder_links_terms3: ~0 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_finder_links_terms3: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_finder_links_terms3` DISABLE KEYS */;
 /*!40000 ALTER TABLE `qtdpv_finder_links_terms3` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_finder_links_terms4
+-- Copiando estrutura para tabela localize.qtdpv_finder_links_terms4
 CREATE TABLE IF NOT EXISTS `qtdpv_finder_links_terms4` (
   `link_id` int(10) unsigned NOT NULL,
   `term_id` int(10) unsigned NOT NULL,
@@ -747,12 +744,12 @@ CREATE TABLE IF NOT EXISTS `qtdpv_finder_links_terms4` (
   KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_finder_links_terms4: ~0 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_finder_links_terms4: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_finder_links_terms4` DISABLE KEYS */;
 /*!40000 ALTER TABLE `qtdpv_finder_links_terms4` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_finder_links_terms5
+-- Copiando estrutura para tabela localize.qtdpv_finder_links_terms5
 CREATE TABLE IF NOT EXISTS `qtdpv_finder_links_terms5` (
   `link_id` int(10) unsigned NOT NULL,
   `term_id` int(10) unsigned NOT NULL,
@@ -762,12 +759,12 @@ CREATE TABLE IF NOT EXISTS `qtdpv_finder_links_terms5` (
   KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_finder_links_terms5: ~0 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_finder_links_terms5: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_finder_links_terms5` DISABLE KEYS */;
 /*!40000 ALTER TABLE `qtdpv_finder_links_terms5` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_finder_links_terms6
+-- Copiando estrutura para tabela localize.qtdpv_finder_links_terms6
 CREATE TABLE IF NOT EXISTS `qtdpv_finder_links_terms6` (
   `link_id` int(10) unsigned NOT NULL,
   `term_id` int(10) unsigned NOT NULL,
@@ -777,12 +774,12 @@ CREATE TABLE IF NOT EXISTS `qtdpv_finder_links_terms6` (
   KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_finder_links_terms6: ~0 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_finder_links_terms6: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_finder_links_terms6` DISABLE KEYS */;
 /*!40000 ALTER TABLE `qtdpv_finder_links_terms6` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_finder_links_terms7
+-- Copiando estrutura para tabela localize.qtdpv_finder_links_terms7
 CREATE TABLE IF NOT EXISTS `qtdpv_finder_links_terms7` (
   `link_id` int(10) unsigned NOT NULL,
   `term_id` int(10) unsigned NOT NULL,
@@ -792,12 +789,12 @@ CREATE TABLE IF NOT EXISTS `qtdpv_finder_links_terms7` (
   KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_finder_links_terms7: ~0 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_finder_links_terms7: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_finder_links_terms7` DISABLE KEYS */;
 /*!40000 ALTER TABLE `qtdpv_finder_links_terms7` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_finder_links_terms8
+-- Copiando estrutura para tabela localize.qtdpv_finder_links_terms8
 CREATE TABLE IF NOT EXISTS `qtdpv_finder_links_terms8` (
   `link_id` int(10) unsigned NOT NULL,
   `term_id` int(10) unsigned NOT NULL,
@@ -807,12 +804,12 @@ CREATE TABLE IF NOT EXISTS `qtdpv_finder_links_terms8` (
   KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_finder_links_terms8: ~0 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_finder_links_terms8: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_finder_links_terms8` DISABLE KEYS */;
 /*!40000 ALTER TABLE `qtdpv_finder_links_terms8` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_finder_links_terms9
+-- Copiando estrutura para tabela localize.qtdpv_finder_links_terms9
 CREATE TABLE IF NOT EXISTS `qtdpv_finder_links_terms9` (
   `link_id` int(10) unsigned NOT NULL,
   `term_id` int(10) unsigned NOT NULL,
@@ -822,12 +819,12 @@ CREATE TABLE IF NOT EXISTS `qtdpv_finder_links_terms9` (
   KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_finder_links_terms9: ~0 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_finder_links_terms9: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_finder_links_terms9` DISABLE KEYS */;
 /*!40000 ALTER TABLE `qtdpv_finder_links_terms9` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_finder_links_termsa
+-- Copiando estrutura para tabela localize.qtdpv_finder_links_termsa
 CREATE TABLE IF NOT EXISTS `qtdpv_finder_links_termsa` (
   `link_id` int(10) unsigned NOT NULL,
   `term_id` int(10) unsigned NOT NULL,
@@ -837,12 +834,12 @@ CREATE TABLE IF NOT EXISTS `qtdpv_finder_links_termsa` (
   KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_finder_links_termsa: ~0 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_finder_links_termsa: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_finder_links_termsa` DISABLE KEYS */;
 /*!40000 ALTER TABLE `qtdpv_finder_links_termsa` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_finder_links_termsb
+-- Copiando estrutura para tabela localize.qtdpv_finder_links_termsb
 CREATE TABLE IF NOT EXISTS `qtdpv_finder_links_termsb` (
   `link_id` int(10) unsigned NOT NULL,
   `term_id` int(10) unsigned NOT NULL,
@@ -852,12 +849,12 @@ CREATE TABLE IF NOT EXISTS `qtdpv_finder_links_termsb` (
   KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_finder_links_termsb: ~0 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_finder_links_termsb: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_finder_links_termsb` DISABLE KEYS */;
 /*!40000 ALTER TABLE `qtdpv_finder_links_termsb` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_finder_links_termsc
+-- Copiando estrutura para tabela localize.qtdpv_finder_links_termsc
 CREATE TABLE IF NOT EXISTS `qtdpv_finder_links_termsc` (
   `link_id` int(10) unsigned NOT NULL,
   `term_id` int(10) unsigned NOT NULL,
@@ -867,12 +864,12 @@ CREATE TABLE IF NOT EXISTS `qtdpv_finder_links_termsc` (
   KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_finder_links_termsc: ~0 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_finder_links_termsc: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_finder_links_termsc` DISABLE KEYS */;
 /*!40000 ALTER TABLE `qtdpv_finder_links_termsc` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_finder_links_termsd
+-- Copiando estrutura para tabela localize.qtdpv_finder_links_termsd
 CREATE TABLE IF NOT EXISTS `qtdpv_finder_links_termsd` (
   `link_id` int(10) unsigned NOT NULL,
   `term_id` int(10) unsigned NOT NULL,
@@ -882,12 +879,12 @@ CREATE TABLE IF NOT EXISTS `qtdpv_finder_links_termsd` (
   KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_finder_links_termsd: ~0 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_finder_links_termsd: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_finder_links_termsd` DISABLE KEYS */;
 /*!40000 ALTER TABLE `qtdpv_finder_links_termsd` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_finder_links_termse
+-- Copiando estrutura para tabela localize.qtdpv_finder_links_termse
 CREATE TABLE IF NOT EXISTS `qtdpv_finder_links_termse` (
   `link_id` int(10) unsigned NOT NULL,
   `term_id` int(10) unsigned NOT NULL,
@@ -897,12 +894,12 @@ CREATE TABLE IF NOT EXISTS `qtdpv_finder_links_termse` (
   KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_finder_links_termse: ~0 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_finder_links_termse: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_finder_links_termse` DISABLE KEYS */;
 /*!40000 ALTER TABLE `qtdpv_finder_links_termse` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_finder_links_termsf
+-- Copiando estrutura para tabela localize.qtdpv_finder_links_termsf
 CREATE TABLE IF NOT EXISTS `qtdpv_finder_links_termsf` (
   `link_id` int(10) unsigned NOT NULL,
   `term_id` int(10) unsigned NOT NULL,
@@ -912,12 +909,12 @@ CREATE TABLE IF NOT EXISTS `qtdpv_finder_links_termsf` (
   KEY `idx_link_term_weight` (`link_id`,`term_id`,`weight`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_finder_links_termsf: ~0 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_finder_links_termsf: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_finder_links_termsf` DISABLE KEYS */;
 /*!40000 ALTER TABLE `qtdpv_finder_links_termsf` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_finder_taxonomy
+-- Copiando estrutura para tabela localize.qtdpv_finder_taxonomy
 CREATE TABLE IF NOT EXISTS `qtdpv_finder_taxonomy` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `parent_id` int(10) unsigned NOT NULL DEFAULT '0',
@@ -933,14 +930,14 @@ CREATE TABLE IF NOT EXISTS `qtdpv_finder_taxonomy` (
   KEY `idx_parent_published` (`parent_id`,`state`,`access`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_finder_taxonomy: ~0 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_finder_taxonomy: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_finder_taxonomy` DISABLE KEYS */;
 INSERT INTO `qtdpv_finder_taxonomy` (`id`, `parent_id`, `title`, `state`, `access`, `ordering`) VALUES
 	(1, 0, 'ROOT', 0, 0, 0);
 /*!40000 ALTER TABLE `qtdpv_finder_taxonomy` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_finder_taxonomy_map
+-- Copiando estrutura para tabela localize.qtdpv_finder_taxonomy_map
 CREATE TABLE IF NOT EXISTS `qtdpv_finder_taxonomy_map` (
   `link_id` int(10) unsigned NOT NULL,
   `node_id` int(10) unsigned NOT NULL,
@@ -949,12 +946,12 @@ CREATE TABLE IF NOT EXISTS `qtdpv_finder_taxonomy_map` (
   KEY `node_id` (`node_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_finder_taxonomy_map: ~0 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_finder_taxonomy_map: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_finder_taxonomy_map` DISABLE KEYS */;
 /*!40000 ALTER TABLE `qtdpv_finder_taxonomy_map` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_finder_terms
+-- Copiando estrutura para tabela localize.qtdpv_finder_terms
 CREATE TABLE IF NOT EXISTS `qtdpv_finder_terms` (
   `term_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `term` varchar(75) NOT NULL,
@@ -972,12 +969,12 @@ CREATE TABLE IF NOT EXISTS `qtdpv_finder_terms` (
   KEY `idx_soundex_phrase` (`soundex`,`phrase`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_finder_terms: ~0 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_finder_terms: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_finder_terms` DISABLE KEYS */;
 /*!40000 ALTER TABLE `qtdpv_finder_terms` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_finder_terms_common
+-- Copiando estrutura para tabela localize.qtdpv_finder_terms_common
 CREATE TABLE IF NOT EXISTS `qtdpv_finder_terms_common` (
   `term` varchar(75) NOT NULL,
   `language` varchar(3) NOT NULL,
@@ -985,7 +982,7 @@ CREATE TABLE IF NOT EXISTS `qtdpv_finder_terms_common` (
   KEY `idx_lang` (`language`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_finder_terms_common: ~115 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_finder_terms_common: ~115 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_finder_terms_common` DISABLE KEYS */;
 INSERT INTO `qtdpv_finder_terms_common` (`term`, `language`) VALUES
 	('a', 'en'),
@@ -1106,7 +1103,7 @@ INSERT INTO `qtdpv_finder_terms_common` (`term`, `language`) VALUES
 /*!40000 ALTER TABLE `qtdpv_finder_terms_common` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_finder_tokens
+-- Copiando estrutura para tabela localize.qtdpv_finder_tokens
 CREATE TABLE IF NOT EXISTS `qtdpv_finder_tokens` (
   `term` varchar(75) NOT NULL,
   `stem` varchar(75) NOT NULL,
@@ -1119,12 +1116,12 @@ CREATE TABLE IF NOT EXISTS `qtdpv_finder_tokens` (
   KEY `idx_context` (`context`)
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_finder_tokens: 0 rows
+-- Copiando dados para a tabela localize.qtdpv_finder_tokens: 0 rows
 /*!40000 ALTER TABLE `qtdpv_finder_tokens` DISABLE KEYS */;
 /*!40000 ALTER TABLE `qtdpv_finder_tokens` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_finder_tokens_aggregate
+-- Copiando estrutura para tabela localize.qtdpv_finder_tokens_aggregate
 CREATE TABLE IF NOT EXISTS `qtdpv_finder_tokens_aggregate` (
   `term_id` int(10) unsigned NOT NULL,
   `map_suffix` char(1) NOT NULL,
@@ -1141,12 +1138,12 @@ CREATE TABLE IF NOT EXISTS `qtdpv_finder_tokens_aggregate` (
   KEY `keyword_id` (`term_id`)
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_finder_tokens_aggregate: 0 rows
+-- Copiando dados para a tabela localize.qtdpv_finder_tokens_aggregate: 0 rows
 /*!40000 ALTER TABLE `qtdpv_finder_tokens_aggregate` DISABLE KEYS */;
 /*!40000 ALTER TABLE `qtdpv_finder_tokens_aggregate` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_finder_types
+-- Copiando estrutura para tabela localize.qtdpv_finder_types
 CREATE TABLE IF NOT EXISTS `qtdpv_finder_types` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(100) NOT NULL,
@@ -1155,12 +1152,12 @@ CREATE TABLE IF NOT EXISTS `qtdpv_finder_types` (
   UNIQUE KEY `title` (`title`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_finder_types: ~0 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_finder_types: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_finder_types` DISABLE KEYS */;
 /*!40000 ALTER TABLE `qtdpv_finder_types` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_languages
+-- Copiando estrutura para tabela localize.qtdpv_languages
 CREATE TABLE IF NOT EXISTS `qtdpv_languages` (
   `lang_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `lang_code` char(7) NOT NULL,
@@ -1183,14 +1180,14 @@ CREATE TABLE IF NOT EXISTS `qtdpv_languages` (
   KEY `idx_ordering` (`ordering`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_languages: ~0 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_languages: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_languages` DISABLE KEYS */;
 INSERT INTO `qtdpv_languages` (`lang_id`, `lang_code`, `title`, `title_native`, `sef`, `image`, `description`, `metakey`, `metadesc`, `sitename`, `published`, `access`, `ordering`) VALUES
 	(1, 'en-GB', 'English (UK)', 'English (UK)', 'en', 'en', '', '', '', '', 1, 1, 1);
 /*!40000 ALTER TABLE `qtdpv_languages` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_localize_empresa
+-- Copiando estrutura para tabela localize.qtdpv_localize_empresa
 CREATE TABLE IF NOT EXISTS `qtdpv_localize_empresa` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `asset_id` int(10) unsigned NOT NULL DEFAULT '0',
@@ -1214,12 +1211,12 @@ CREATE TABLE IF NOT EXISTS `qtdpv_localize_empresa` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_localize_empresa: ~0 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_localize_empresa: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_localize_empresa` DISABLE KEYS */;
 /*!40000 ALTER TABLE `qtdpv_localize_empresa` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_menu
+-- Copiando estrutura para tabela localize.qtdpv_menu
 CREATE TABLE IF NOT EXISTS `qtdpv_menu` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `menutype` varchar(24) NOT NULL COMMENT 'The type of menu this item belongs to. FK to #__menu_types.menutype',
@@ -1253,12 +1250,12 @@ CREATE TABLE IF NOT EXISTS `qtdpv_menu` (
   KEY `idx_alias` (`alias`),
   KEY `idx_path` (`path`(255)),
   KEY `idx_language` (`language`)
-) ENGINE=InnoDB AUTO_INCREMENT=108 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=110 DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_menu: ~27 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_menu: ~28 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_menu` DISABLE KEYS */;
 INSERT INTO `qtdpv_menu` (`id`, `menutype`, `title`, `alias`, `note`, `path`, `link`, `type`, `published`, `parent_id`, `level`, `component_id`, `checked_out`, `checked_out_time`, `browserNav`, `access`, `img`, `template_style_id`, `params`, `lft`, `rgt`, `home`, `language`, `client_id`) VALUES
-	(1, '', 'Menu_Item_Root', 'root', '', '', '', '', 1, 0, 0, 0, 0, '0000-00-00 00:00:00', 0, 0, '', 0, '', 0, 55, 0, '*', 0),
+	(1, '', 'Menu_Item_Root', 'root', '', '', '', '', 1, 0, 0, 0, 0, '0000-00-00 00:00:00', 0, 0, '', 0, '', 0, 59, 0, '*', 0),
 	(2, 'menu', 'com_banners', 'Banners', '', 'Banners', 'index.php?option=com_banners', 'component', 0, 1, 1, 4, 0, '0000-00-00 00:00:00', 0, 0, 'class:banners', 0, '', 1, 10, 0, '*', 1),
 	(3, 'menu', 'com_banners', 'Banners', '', 'Banners/Banners', 'index.php?option=com_banners', 'component', 0, 2, 2, 4, 0, '0000-00-00 00:00:00', 0, 0, 'class:banners', 0, '', 2, 3, 0, '*', 1),
 	(4, 'menu', 'com_banners_categories', 'Categories', '', 'Banners/Categories', 'index.php?option=com_categories&extension=com_banners', 'component', 0, 2, 2, 6, 0, '0000-00-00 00:00:00', 0, 0, 'class:banners-cat', 0, '', 4, 5, 0, '*', 1),
@@ -1285,11 +1282,13 @@ INSERT INTO `qtdpv_menu` (`id`, `menutype`, `title`, `alias`, `note`, `path`, `l
 	(104, 'menuprincipal', 'Para Comprar', '2015-11-26-13-07-15', '', '2015-11-26-13-07-15', '#', 'url', 1, 1, 1, 0, 0, '0000-00-00 00:00:00', 0, 1, ' ', 0, '{"menu-anchor_title":"","menu-anchor_css":"","menu_image":"","menu_text":1}', 47, 48, 0, '*', 0),
 	(105, 'menuprincipal', 'Para Alugar', '2015-11-26-13-08-05', '', '2015-11-26-13-08-05', '#', 'url', 1, 1, 1, 0, 0, '0000-00-00 00:00:00', 0, 1, ' ', 0, '{"menu-anchor_title":"","menu-anchor_css":"","menu_image":"","menu_text":1}', 49, 50, 0, '*', 0),
 	(106, 'menuprincipal', 'Anunciar', '2015-11-26-13-09-12', '', '2015-11-26-13-09-12', '#', 'url', 1, 1, 1, 0, 0, '0000-00-00 00:00:00', 0, 1, ' ', 0, '{"menu-anchor_title":"","menu-anchor_css":"","menu_image":"","menu_text":1}', 51, 52, 0, '*', 0),
-	(107, 'menuprincipal', 'Cadastre-se', 'cadastre-se', '', 'cadastre-se', 'index.php?option=com_users&view=registration', 'component', 1, 1, 1, 25, 0, '0000-00-00 00:00:00', 0, 1, ' ', 0, '{"menu-anchor_title":"","menu-anchor_css":"","menu_image":"","menu_text":1,"page_title":"","show_page_heading":"","page_heading":"","pageclass_sfx":"","menu-meta_description":"","menu-meta_keywords":"","robots":"","secure":0}', 53, 54, 0, '*', 0);
+	(107, 'menuprincipal', 'Cadastre-se', 'cadastre-se', '', 'cadastre-se', 'index.php?option=com_users&view=registration', 'component', 1, 1, 1, 25, 0, '0000-00-00 00:00:00', 0, 1, ' ', 0, '{"menu-anchor_title":"","menu-anchor_css":"","menu_image":"","menu_text":1,"page_title":"","show_page_heading":"","page_heading":"","pageclass_sfx":"","menu-meta_description":"","menu-meta_keywords":"","robots":"","secure":0}', 53, 54, 0, '*', 0),
+	(108, 'main', 'COM_LOCALIZE_IMOVEL', 'com-localize-imovel', '', 'com-localize-imovel', 'index.php?option=com_localize_imovel', 'component', 0, 1, 1, 707, 0, '0000-00-00 00:00:00', 0, 1, 'media/com_localize_imovel/images/s_com_localize_imovel.png', 0, '{}', 55, 58, 0, '', 1),
+	(109, 'main', 'COM_LOCALIZE_IMOVEL_TITLE_IMVEIS', 'com-localize-imovel-title-imveis', '', 'com-localize-imovel/com-localize-imovel-title-imveis', 'index.php?option=com_localize_imovel&view=imveis', 'component', 0, 108, 2, 707, 0, '0000-00-00 00:00:00', 0, 1, 'media/com_localize_imovel/images/s_imveis.png', 0, '{}', 56, 57, 0, '', 1);
 /*!40000 ALTER TABLE `qtdpv_menu` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_menu_types
+-- Copiando estrutura para tabela localize.qtdpv_menu_types
 CREATE TABLE IF NOT EXISTS `qtdpv_menu_types` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `menutype` varchar(24) NOT NULL,
@@ -1299,14 +1298,14 @@ CREATE TABLE IF NOT EXISTS `qtdpv_menu_types` (
   UNIQUE KEY `idx_menutype` (`menutype`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_menu_types: ~0 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_menu_types: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_menu_types` DISABLE KEYS */;
 INSERT INTO `qtdpv_menu_types` (`id`, `menutype`, `title`, `description`) VALUES
 	(1, 'menuprincipal', 'Menu Principal', '');
 /*!40000 ALTER TABLE `qtdpv_menu_types` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_messages
+-- Copiando estrutura para tabela localize.qtdpv_messages
 CREATE TABLE IF NOT EXISTS `qtdpv_messages` (
   `message_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user_id_from` int(10) unsigned NOT NULL DEFAULT '0',
@@ -1321,12 +1320,12 @@ CREATE TABLE IF NOT EXISTS `qtdpv_messages` (
   KEY `useridto_state` (`user_id_to`,`state`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_messages: ~0 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_messages: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_messages` DISABLE KEYS */;
 /*!40000 ALTER TABLE `qtdpv_messages` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_messages_cfg
+-- Copiando estrutura para tabela localize.qtdpv_messages_cfg
 CREATE TABLE IF NOT EXISTS `qtdpv_messages_cfg` (
   `user_id` int(10) unsigned NOT NULL DEFAULT '0',
   `cfg_name` varchar(100) NOT NULL DEFAULT '',
@@ -1334,12 +1333,12 @@ CREATE TABLE IF NOT EXISTS `qtdpv_messages_cfg` (
   UNIQUE KEY `idx_user_var_name` (`user_id`,`cfg_name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_messages_cfg: ~0 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_messages_cfg: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_messages_cfg` DISABLE KEYS */;
 /*!40000 ALTER TABLE `qtdpv_messages_cfg` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_modules
+-- Copiando estrutura para tabela localize.qtdpv_modules
 CREATE TABLE IF NOT EXISTS `qtdpv_modules` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `asset_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'FK to the #__assets table.',
@@ -1365,7 +1364,7 @@ CREATE TABLE IF NOT EXISTS `qtdpv_modules` (
   KEY `idx_language` (`language`)
 ) ENGINE=InnoDB AUTO_INCREMENT=90 DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_modules: ~18 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_modules: ~18 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_modules` DISABLE KEYS */;
 INSERT INTO `qtdpv_modules` (`id`, `asset_id`, `title`, `note`, `content`, `ordering`, `position`, `checked_out`, `checked_out_time`, `publish_up`, `publish_down`, `published`, `module`, `access`, `showtitle`, `params`, `client_id`, `language`) VALUES
 	(1, 39, 'Menu Principal', '', '', 1, 'menu', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_menu', 1, 0, '{"menutype":"menuprincipal","base":"","startLevel":"1","endLevel":"0","showAllChildren":"0","tag_id":"","class_sfx":"","window_open":"","layout":"_:default","moduleclass_sfx":"_menu","cache":"1","cache_time":"900","cachemode":"itemid","module_tag":"div","bootstrap_size":"0","header_tag":"h3","header_class":"","style":"0"}', 0, '*'),
@@ -1383,20 +1382,20 @@ INSERT INTO `qtdpv_modules` (`id`, `asset_id`, `title`, `note`, `content`, `orde
 	(17, 51, 'Breadcrumbs', '', '', 1, 'position-2', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_breadcrumbs', 1, 1, '{"moduleclass_sfx":"","showHome":"1","homeText":"","showComponent":"1","separator":"","cache":"1","cache_time":"900","cachemode":"itemid"}', 0, '*'),
 	(79, 52, 'Multilanguage status', '', '', 1, 'status', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 'mod_multilangstatus', 3, 1, '{"layout":"_:default","moduleclass_sfx":"","cache":"0"}', 1, '*'),
 	(86, 53, 'Joomla Version', '', '', 1, 'footer', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_version', 3, 1, '{"format":"short","product":"1","layout":"_:default","moduleclass_sfx":"","cache":"0"}', 1, '*'),
-	(87, 55, 'Logotipo', '', '<img src="images/logotipo.png" alt="Localize Imóveis"/>', 0, 'logotipo', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_custom', 1, 0, '{"prepare_content":"0","backgroundimage":"","layout":"_:default","moduleclass_sfx":"","cache":"1","cache_time":"900","cachemode":"static","module_tag":"div","bootstrap_size":"0","header_tag":"h3","header_class":"","style":"0"}', 0, '*'),
+	(87, 55, 'Logotipo', '', '<img src="images/logotipo.png" alt="Localize ImÃ³veis"/>', 0, 'logotipo', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_custom', 1, 0, '{"prepare_content":"0","backgroundimage":"","layout":"_:default","moduleclass_sfx":"","cache":"1","cache_time":"900","cachemode":"static","module_tag":"div","bootstrap_size":"0","header_tag":"h3","header_class":"","style":"0"}', 0, '*'),
 	(88, 56, 'Mapa Home', '', '<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d51417.191285401816!2d-49.27367987011535!3d-16.696607977815557!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-BR!2sbr!4v1448543705001" width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen></iframe>', 0, 'mapa-home', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_custom', 1, 1, '{"prepare_content":"0","backgroundimage":"","layout":"_:default","moduleclass_sfx":"","cache":"1","cache_time":"900","cachemode":"static","module_tag":"div","bootstrap_size":"0","header_tag":"h3","header_class":"","style":"0"}', 0, '*'),
-	(89, 57, 'Pesquisar', '', '<h5>Encontre seu doce lar!</h5>\r\n<form>\r\n  <select>\r\n  <option>Apartamentos</option>\r\n  <option>Casas/Sobrados</option>\r\n</select><input type="text" placeholder="O que você está procurando?" /><input type="submit" value="Pesquisar" />\r\n</form>\r\n', 1, 'pesquisar', 564, '2015-11-26 13:39:15', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_custom', 1, 1, '{"prepare_content":"0","backgroundimage":"","layout":"_:default","moduleclass_sfx":"","cache":"1","cache_time":"900","cachemode":"static","module_tag":"div","bootstrap_size":"0","header_tag":"h3","header_class":"","style":"0"}', 0, '*');
+	(89, 57, 'Pesquisar', '', '<h5>Encontre seu doce lar!</h5>\r\n<form>\r\n  <select>\r\n  <option>Apartamentos</option>\r\n  <option>Casas/Sobrados</option>\r\n</select><input type="text" placeholder="O que vocÃª estÃ¡ procurando?" /><input type="submit" value="Pesquisar" />\r\n</form>\r\n', 1, 'pesquisar', 564, '2015-11-26 13:39:15', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_custom', 1, 1, '{"prepare_content":"0","backgroundimage":"","layout":"_:default","moduleclass_sfx":"","cache":"1","cache_time":"900","cachemode":"static","module_tag":"div","bootstrap_size":"0","header_tag":"h3","header_class":"","style":"0"}', 0, '*');
 /*!40000 ALTER TABLE `qtdpv_modules` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_modules_menu
+-- Copiando estrutura para tabela localize.qtdpv_modules_menu
 CREATE TABLE IF NOT EXISTS `qtdpv_modules_menu` (
   `moduleid` int(11) NOT NULL DEFAULT '0',
   `menuid` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`moduleid`,`menuid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_modules_menu: ~19 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_modules_menu: ~20 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_modules_menu` DISABLE KEYS */;
 INSERT INTO `qtdpv_modules_menu` (`moduleid`, `menuid`) VALUES
 	(1, 0),
@@ -1422,7 +1421,7 @@ INSERT INTO `qtdpv_modules_menu` (`moduleid`, `menuid`) VALUES
 /*!40000 ALTER TABLE `qtdpv_modules_menu` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_newsfeeds
+-- Copiando estrutura para tabela localize.qtdpv_newsfeeds
 CREATE TABLE IF NOT EXISTS `qtdpv_newsfeeds` (
   `catid` int(11) NOT NULL DEFAULT '0',
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -1464,12 +1463,12 @@ CREATE TABLE IF NOT EXISTS `qtdpv_newsfeeds` (
   KEY `idx_xreference` (`xreference`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_newsfeeds: ~0 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_newsfeeds: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_newsfeeds` DISABLE KEYS */;
 /*!40000 ALTER TABLE `qtdpv_newsfeeds` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_overrider
+-- Copiando estrutura para tabela localize.qtdpv_overrider
 CREATE TABLE IF NOT EXISTS `qtdpv_overrider` (
   `id` int(10) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
   `constant` varchar(255) NOT NULL,
@@ -1478,12 +1477,12 @@ CREATE TABLE IF NOT EXISTS `qtdpv_overrider` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_overrider: ~0 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_overrider: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_overrider` DISABLE KEYS */;
 /*!40000 ALTER TABLE `qtdpv_overrider` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_postinstall_messages
+-- Copiando estrutura para tabela localize.qtdpv_postinstall_messages
 CREATE TABLE IF NOT EXISTS `qtdpv_postinstall_messages` (
   `postinstall_message_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `extension_id` bigint(20) NOT NULL DEFAULT '700' COMMENT 'FK to #__extensions',
@@ -1502,7 +1501,7 @@ CREATE TABLE IF NOT EXISTS `qtdpv_postinstall_messages` (
   PRIMARY KEY (`postinstall_message_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_postinstall_messages: ~2 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_postinstall_messages: ~2 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_postinstall_messages` DISABLE KEYS */;
 INSERT INTO `qtdpv_postinstall_messages` (`postinstall_message_id`, `extension_id`, `title_key`, `description_key`, `action_key`, `language_extension`, `language_client_id`, `type`, `action_file`, `action`, `condition_file`, `condition_method`, `version_introduced`, `enabled`) VALUES
 	(1, 700, 'PLG_TWOFACTORAUTH_TOTP_POSTINSTALL_TITLE', 'PLG_TWOFACTORAUTH_TOTP_POSTINSTALL_BODY', 'PLG_TWOFACTORAUTH_TOTP_POSTINSTALL_ACTION', 'plg_twofactorauth_totp', 1, 'action', 'site://plugins/twofactorauth/totp/postinstall/actions.php', 'twofactorauth_postinstall_action', 'site://plugins/twofactorauth/totp/postinstall/actions.php', 'twofactorauth_postinstall_condition', '3.2.0', 1),
@@ -1510,7 +1509,7 @@ INSERT INTO `qtdpv_postinstall_messages` (`postinstall_message_id`, `extension_i
 /*!40000 ALTER TABLE `qtdpv_postinstall_messages` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_redirect_links
+-- Copiando estrutura para tabela localize.qtdpv_redirect_links
 CREATE TABLE IF NOT EXISTS `qtdpv_redirect_links` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `old_url` varchar(255) NOT NULL,
@@ -1527,26 +1526,26 @@ CREATE TABLE IF NOT EXISTS `qtdpv_redirect_links` (
   KEY `idx_link_modifed` (`modified_date`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_redirect_links: ~0 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_redirect_links: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_redirect_links` DISABLE KEYS */;
 /*!40000 ALTER TABLE `qtdpv_redirect_links` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_schemas
+-- Copiando estrutura para tabela localize.qtdpv_schemas
 CREATE TABLE IF NOT EXISTS `qtdpv_schemas` (
   `extension_id` int(11) NOT NULL,
   `version_id` varchar(20) NOT NULL,
   PRIMARY KEY (`extension_id`,`version_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_schemas: ~0 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_schemas: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_schemas` DISABLE KEYS */;
 INSERT INTO `qtdpv_schemas` (`extension_id`, `version_id`) VALUES
 	(700, '3.4.0-2015-02-26');
 /*!40000 ALTER TABLE `qtdpv_schemas` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_session
+-- Copiando estrutura para tabela localize.qtdpv_session
 CREATE TABLE IF NOT EXISTS `qtdpv_session` (
   `session_id` varchar(200) NOT NULL DEFAULT '',
   `client_id` tinyint(3) unsigned NOT NULL DEFAULT '0',
@@ -1560,14 +1559,15 @@ CREATE TABLE IF NOT EXISTS `qtdpv_session` (
   KEY `time` (`time`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_session: ~1 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_session: ~1 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_session` DISABLE KEYS */;
 INSERT INTO `qtdpv_session` (`session_id`, `client_id`, `guest`, `time`, `data`, `userid`, `username`) VALUES
-	('gcblfmplq1aj72to8d0lu6uuv5', 0, 1, '1452265176', '__default|a:7:{s:15:"session.counter";i:1;s:19:"session.timer.start";i:1452265175;s:18:"session.timer.last";i:1452265175;s:17:"session.timer.now";i:1452265175;s:22:"session.client.browser";s:110:"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36";s:8:"registry";O:24:"Joomla\\Registry\\Registry":2:{s:7:"\\0\\0\\0data";O:8:"stdClass":0:{}s:9:"separator";s:1:".";}s:4:"user";O:5:"JUser":26:{s:9:"\\0\\0\\0isRoot";b:0;s:2:"id";i:0;s:4:"name";N;s:8:"username";N;s:5:"email";N;s:8:"password";N;s:14:"password_clear";s:0:"";s:5:"block";N;s:9:"sendEmail";i:0;s:12:"registerDate";N;s:13:"lastvisitDate";N;s:10:"activation";N;s:6:"params";N;s:6:"groups";a:1:{i:0;s:1:"9";}s:5:"guest";i:1;s:13:"lastResetTime";N;s:10:"resetCount";N;s:12:"requireReset";N;s:10:"\\0\\0\\0_params";O:24:"Joomla\\Registry\\Registry":2:{s:7:"\\0\\0\\0data";O:8:"stdClass":0:{}s:9:"separator";s:1:".";}s:14:"\\0\\0\\0_authGroups";a:2:{i:0;i:1;i:1;i:9;}s:14:"\\0\\0\\0_authLevels";a:3:{i:0;i:1;i:1;i:1;i:2;i:5;}s:15:"\\0\\0\\0_authActions";N;s:12:"\\0\\0\\0_errorMsg";N;s:13:"\\0\\0\\0userHelper";O:18:"JUserWrapperHelper":0:{}s:10:"\\0\\0\\0_errors";a:0:{}s:3:"aid";i:0;}}', 0, '');
+	('2ga25kfm733sq3m2b72bked885', 0, 1, '1452453604', '__default|a:0:{}joomla|s:1408:"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjoyOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjoyOntzOjQ6InVzZXIiO086NToiSlVzZXIiOjI2OntzOjk6IgAqAGlzUm9vdCI7YjowO3M6MjoiaWQiO2k6MDtzOjQ6Im5hbWUiO047czo4OiJ1c2VybmFtZSI7TjtzOjU6ImVtYWlsIjtOO3M6ODoicGFzc3dvcmQiO047czoxNDoicGFzc3dvcmRfY2xlYXIiO3M6MDoiIjtzOjU6ImJsb2NrIjtOO3M6OToic2VuZEVtYWlsIjtpOjA7czoxMjoicmVnaXN0ZXJEYXRlIjtOO3M6MTM6Imxhc3R2aXNpdERhdGUiO047czoxMDoiYWN0aXZhdGlvbiI7TjtzOjY6InBhcmFtcyI7TjtzOjY6Imdyb3VwcyI7YToxOntpOjA7czoxOiI5Ijt9czo1OiJndWVzdCI7aToxO3M6MTM6Imxhc3RSZXNldFRpbWUiO047czoxMDoicmVzZXRDb3VudCI7TjtzOjEyOiJyZXF1aXJlUmVzZXQiO047czoxMDoiACoAX3BhcmFtcyI7TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjoyOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjA6e31zOjk6InNlcGFyYXRvciI7czoxOiIuIjt9czoxNDoiACoAX2F1dGhHcm91cHMiO2E6Mjp7aTowO2k6MTtpOjE7aTo5O31zOjE0OiIAKgBfYXV0aExldmVscyI7YTozOntpOjA7aToxO2k6MTtpOjE7aToyO2k6NTt9czoxNToiACoAX2F1dGhBY3Rpb25zIjtOO3M6MTI6IgAqAF9lcnJvck1zZyI7TjtzOjEzOiIAKgB1c2VySGVscGVyIjtPOjE4OiJKVXNlcldyYXBwZXJIZWxwZXIiOjA6e31zOjEwOiIAKgBfZXJyb3JzIjthOjA6e31zOjM6ImFpZCI7aTowO31zOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NToidG9rZW4iO3M6MzI6ImI4ODkwOGZjMDBkOGFjODE5OTk3MTI2MGJjNmFhNDk1IjtzOjc6ImNvdW50ZXIiO2k6MjtzOjU6InRpbWVyIjtPOjg6InN0ZENsYXNzIjozOntzOjU6InN0YXJ0IjtpOjE0NTI0NTMzNzI7czo0OiJsYXN0IjtpOjE0NTI0NTMzNzI7czozOiJub3ciO2k6MTQ1MjQ1MzYwNDt9fX19czo5OiJzZXBhcmF0b3IiO3M6MToiLiI7fQ==";', 0, ''),
+	('p1hac68i23fiq8s1mnlqoeg3u3', 1, 0, '1452454213', 'joomla|s:3212:"TzoyNDoiSm9vbWxhXFJlZ2lzdHJ5XFJlZ2lzdHJ5IjoyOntzOjc6IgAqAGRhdGEiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiX19kZWZhdWx0IjtPOjg6InN0ZENsYXNzIjo0OntzOjc6InNlc3Npb24iO086ODoic3RkQ2xhc3MiOjM6e3M6NzoiY291bnRlciI7aToyODtzOjU6InRpbWVyIjtPOjg6InN0ZENsYXNzIjozOntzOjU6InN0YXJ0IjtpOjE0NTI0NTM1MDk7czo0OiJsYXN0IjtpOjE0NTI0NTQyMTI7czozOiJub3ciO2k6MTQ1MjQ1NDIxMjt9czo1OiJ0b2tlbiI7czozMjoiMDU5NzY3NTlmNmYwMTUxYWJhNTMzNmUwYjQzYTJkM2IiO31zOjg6InJlZ2lzdHJ5IjtPOjI0OiJKb29tbGFcUmVnaXN0cnlcUmVnaXN0cnkiOjI6e3M6NzoiACoAZGF0YSI7Tzo4OiJzdGRDbGFzcyI6Nzp7czoxMToiYXBwbGljYXRpb24iO086ODoic3RkQ2xhc3MiOjE6e3M6NDoibGFuZyI7czowOiIiO31zOjE2OiJjb21fam9vbWxhdXBkYXRlIjtPOjg6InN0ZENsYXNzIjoxOntzOjQ6ImZpbGUiO047fXM6MTM6ImNvbV9pbnN0YWxsZXIiO086ODoic3RkQ2xhc3MiOjM6e3M6NzoibWVzc2FnZSI7czowOiIiO3M6MTc6ImV4dGVuc2lvbl9tZXNzYWdlIjtzOjA6IiI7czoxMjoicmVkaXJlY3RfdXJsIjtOO31zOjE5OiJjb21fbG9jYWxpemVfaW1vdmVsIjtPOjg6InN0ZENsYXNzIjoyOntzOjY6ImltdmVpcyI7Tzo4OiJzdGRDbGFzcyI6MTp7czo4OiJvcmRlcmNvbCI7czo2OiJhLm5vbWUiO31zOjQ6ImVkaXQiO086ODoic3RkQ2xhc3MiOjE6e3M6NToiaW12ZWwiO086ODoic3RkQ2xhc3MiOjE6e3M6NDoiZGF0YSI7Tjt9fX1zOjk6ImNvbV91c2VycyI7Tzo4OiJzdGRDbGFzcyI6MTp7czo0OiJlZGl0IjtPOjg6InN0ZENsYXNzIjoxOntzOjQ6InVzZXIiO086ODoic3RkQ2xhc3MiOjI6e3M6MjoiaWQiO2E6MDp7fXM6NDoiZGF0YSI7Tjt9fX1zOjk6ImNvbV9tZW51cyI7Tzo4OiJzdGRDbGFzcyI6MTp7czo1OiJpdGVtcyI7Tzo4OiJzdGRDbGFzcyI6Mzp7czo4OiJtZW51dHlwZSI7czoxMzoibWVudXByaW5jaXBhbCI7czoxMDoibGltaXRzdGFydCI7aTowO3M6NDoibGlzdCI7YTo0OntzOjk6ImRpcmVjdGlvbiI7czozOiJhc2MiO3M6NToibGltaXQiO3M6MjoiMjAiO3M6ODoib3JkZXJpbmciO3M6NToiYS5sZnQiO3M6NToic3RhcnQiO2Q6MDt9fX1zOjE0OiJjb21fY2F0ZWdvcmllcyI7Tzo4OiJzdGRDbGFzcyI6MTp7czoxMDoiY2F0ZWdvcmllcyI7Tzo4OiJzdGRDbGFzcyI6MTp7czo2OiJmaWx0ZXIiO086ODoic3RkQ2xhc3MiOjE6e3M6OToiZXh0ZW5zaW9uIjtzOjExOiJjb21fY29udGVudCI7fX19fXM6OToic2VwYXJhdG9yIjtzOjE6Ii4iO31zOjQ6InVzZXIiO086NToiSlVzZXIiOjI4OntzOjk6IgAqAGlzUm9vdCI7YjoxO3M6MjoiaWQiO3M6MzoiNTY0IjtzOjQ6Im5hbWUiO3M6MTA6IlN1cGVyIFVzZXIiO3M6ODoidXNlcm5hbWUiO3M6NToiYWRtaW4iO3M6NToiZW1haWwiO3M6MTg6InZnYi5pbmZvQGdtYWlsLmNvbSI7czo4OiJwYXNzd29yZCI7czo2MDoiJDJ5JDEwJGphMDM3SFNzYWRQTjM5TGJoMW9kTWVOdm1LLy5iUUh6akx4RVhqMkN4SVlwT2FZTGVYcHNxIjtzOjE0OiJwYXNzd29yZF9jbGVhciI7czowOiIiO3M6NToiYmxvY2siO3M6MToiMCI7czo5OiJzZW5kRW1haWwiO3M6MToiMSI7czoxMjoicmVnaXN0ZXJEYXRlIjtzOjE5OiIyMDE1LTExLTIzIDExOjQ3OjE3IjtzOjEzOiJsYXN0dmlzaXREYXRlIjtzOjE5OiIyMDE2LTAxLTEwIDE5OjE3OjIzIjtzOjEwOiJhY3RpdmF0aW9uIjtzOjE6IjAiO3M6NjoicGFyYW1zIjtzOjI6Int9IjtzOjY6Imdyb3VwcyI7YToxOntpOjg7czoxOiI4Ijt9czo1OiJndWVzdCI7aTowO3M6MTM6Imxhc3RSZXNldFRpbWUiO3M6MTk6IjAwMDAtMDAtMDAgMDA6MDA6MDAiO3M6MTA6InJlc2V0Q291bnQiO3M6MToiMCI7czoxMjoicmVxdWlyZVJlc2V0IjtzOjE6IjAiO3M6MTA6IgAqAF9wYXJhbXMiO086MjQ6Ikpvb21sYVxSZWdpc3RyeVxSZWdpc3RyeSI6Mjp7czo3OiIAKgBkYXRhIjtPOjg6InN0ZENsYXNzIjowOnt9czo5OiJzZXBhcmF0b3IiO3M6MToiLiI7fXM6MTQ6IgAqAF9hdXRoR3JvdXBzIjthOjI6e2k6MDtpOjE7aToxO2k6ODt9czoxNDoiACoAX2F1dGhMZXZlbHMiO2E6NTp7aTowO2k6MTtpOjE7aToxO2k6MjtpOjI7aTozO2k6MztpOjQ7aTo2O31zOjE1OiIAKgBfYXV0aEFjdGlvbnMiO047czoxMjoiACoAX2Vycm9yTXNnIjtOO3M6MTM6IgAqAHVzZXJIZWxwZXIiO086MTg6IkpVc2VyV3JhcHBlckhlbHBlciI6MDp7fXM6MTA6IgAqAF9lcnJvcnMiO2E6MDp7fXM6MzoiYWlkIjtpOjA7czo2OiJvdHBLZXkiO3M6MDoiIjtzOjQ6Im90ZXAiO3M6MDoiIjt9czoxMToiYXBwbGljYXRpb24iO086ODoic3RkQ2xhc3MiOjE6e3M6NToicXVldWUiO047fX19czo5OiJzZXBhcmF0b3IiO3M6MToiLiI7fQ==";', 564, 'admin');
 /*!40000 ALTER TABLE `qtdpv_session` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_tags
+-- Copiando estrutura para tabela localize.qtdpv_tags
 CREATE TABLE IF NOT EXISTS `qtdpv_tags` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `parent_id` int(10) unsigned NOT NULL DEFAULT '0',
@@ -1609,14 +1609,14 @@ CREATE TABLE IF NOT EXISTS `qtdpv_tags` (
   KEY `idx_language` (`language`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_tags: ~0 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_tags: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_tags` DISABLE KEYS */;
 INSERT INTO `qtdpv_tags` (`id`, `parent_id`, `lft`, `rgt`, `level`, `path`, `title`, `alias`, `note`, `description`, `published`, `checked_out`, `checked_out_time`, `access`, `params`, `metadesc`, `metakey`, `metadata`, `created_user_id`, `created_time`, `created_by_alias`, `modified_user_id`, `modified_time`, `images`, `urls`, `hits`, `language`, `version`, `publish_up`, `publish_down`) VALUES
 	(1, 0, 0, 1, 0, '', 'ROOT', 'root', '', '', 1, 0, '0000-00-00 00:00:00', 1, '', '', '', '', 42, '2011-01-01 00:00:01', '', 0, '0000-00-00 00:00:00', '', '', 0, '*', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 /*!40000 ALTER TABLE `qtdpv_tags` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_template_styles
+-- Copiando estrutura para tabela localize.qtdpv_template_styles
 CREATE TABLE IF NOT EXISTS `qtdpv_template_styles` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `template` varchar(50) NOT NULL DEFAULT '',
@@ -1629,18 +1629,18 @@ CREATE TABLE IF NOT EXISTS `qtdpv_template_styles` (
   KEY `idx_home` (`home`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_template_styles: ~5 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_template_styles: ~5 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_template_styles` DISABLE KEYS */;
 INSERT INTO `qtdpv_template_styles` (`id`, `template`, `client_id`, `home`, `title`, `params`) VALUES
 	(4, 'beez3', 0, '0', 'Beez3 - Default', '{"wrapperSmall":"53","wrapperLarge":"72","logo":"images\\/joomla_black.png","sitetitle":"Joomla!","sitedescription":"Open Source Content Management","navposition":"left","templatecolor":"personal","html5":"0"}'),
 	(5, 'hathor', 1, '0', 'Hathor - Default', '{"showSiteName":"0","colourChoice":"","boldText":"0"}'),
 	(7, 'protostar', 0, '0', 'protostar - Default', '{"templateColor":"","logoFile":"","googleFont":"1","googleFontName":"Open+Sans","fluidContainer":"0"}'),
 	(8, 'isis', 1, '1', 'isis - Default', '{"templateColor":"","logoFile":""}'),
-	(9, 'frontend', 0, '1', 'frontend - Padrão', '{"runless":"1"}');
+	(9, 'frontend', 0, '1', 'frontend - PadrÃ£o', '{"runless":"1"}');
 /*!40000 ALTER TABLE `qtdpv_template_styles` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_ucm_base
+-- Copiando estrutura para tabela localize.qtdpv_ucm_base
 CREATE TABLE IF NOT EXISTS `qtdpv_ucm_base` (
   `ucm_id` int(10) unsigned NOT NULL,
   `ucm_item_id` int(10) NOT NULL,
@@ -1652,12 +1652,12 @@ CREATE TABLE IF NOT EXISTS `qtdpv_ucm_base` (
   KEY `idx_ucm_language_id` (`ucm_language_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_ucm_base: ~0 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_ucm_base: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_ucm_base` DISABLE KEYS */;
 /*!40000 ALTER TABLE `qtdpv_ucm_base` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_ucm_content
+-- Copiando estrutura para tabela localize.qtdpv_ucm_content
 CREATE TABLE IF NOT EXISTS `qtdpv_ucm_content` (
   `core_content_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `core_type_alias` varchar(255) NOT NULL DEFAULT '' COMMENT 'FK to the content types table',
@@ -1706,12 +1706,12 @@ CREATE TABLE IF NOT EXISTS `qtdpv_ucm_content` (
   KEY `idx_core_type_id` (`core_type_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Contains core content data in name spaced fields';
 
--- Dumping data for table localize.qtdpv_ucm_content: ~0 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_ucm_content: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_ucm_content` DISABLE KEYS */;
 /*!40000 ALTER TABLE `qtdpv_ucm_content` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_ucm_history
+-- Copiando estrutura para tabela localize.qtdpv_ucm_history
 CREATE TABLE IF NOT EXISTS `qtdpv_ucm_history` (
   `version_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `ucm_item_id` int(10) unsigned NOT NULL,
@@ -1728,12 +1728,12 @@ CREATE TABLE IF NOT EXISTS `qtdpv_ucm_history` (
   KEY `idx_save_date` (`save_date`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_ucm_history: ~0 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_ucm_history: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_ucm_history` DISABLE KEYS */;
 /*!40000 ALTER TABLE `qtdpv_ucm_history` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_updates
+-- Copiando estrutura para tabela localize.qtdpv_updates
 CREATE TABLE IF NOT EXISTS `qtdpv_updates` (
   `update_id` int(11) NOT NULL AUTO_INCREMENT,
   `update_site_id` int(11) DEFAULT '0',
@@ -1750,14 +1750,78 @@ CREATE TABLE IF NOT EXISTS `qtdpv_updates` (
   `infourl` text NOT NULL,
   `extra_query` varchar(1000) DEFAULT '',
   PRIMARY KEY (`update_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Available Updates';
+) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=utf8 COMMENT='Available Updates';
 
--- Dumping data for table localize.qtdpv_updates: ~0 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_updates: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_updates` DISABLE KEYS */;
+INSERT INTO `qtdpv_updates` (`update_id`, `update_site_id`, `extension_id`, `name`, `description`, `element`, `type`, `folder`, `client_id`, `version`, `data`, `detailsurl`, `infourl`, `extra_query`) VALUES
+	(1, 3, 0, 'Armenian', '', 'pkg_hy-AM', 'package', '', 0, '3.4.4.1', '', 'http://update.joomla.org/language/details3/hy-AM_details.xml', '', ''),
+	(2, 3, 0, 'Malay', '', 'pkg_ms-MY', 'package', '', 0, '3.4.1.2', '', 'http://update.joomla.org/language/details3/ms-MY_details.xml', '', ''),
+	(3, 3, 0, 'Romanian', '', 'pkg_ro-RO', 'package', '', 0, '3.4.3.1', '', 'http://update.joomla.org/language/details3/ro-RO_details.xml', '', ''),
+	(4, 3, 0, 'Flemish', '', 'pkg_nl-BE', 'package', '', 0, '3.4.8.2', '', 'http://update.joomla.org/language/details3/nl-BE_details.xml', '', ''),
+	(5, 3, 0, 'Chinese Traditional', '', 'pkg_zh-TW', 'package', '', 0, '3.4.4.1', '', 'http://update.joomla.org/language/details3/zh-TW_details.xml', '', ''),
+	(6, 3, 0, 'French', '', 'pkg_fr-FR', 'package', '', 0, '3.4.8.1', '', 'http://update.joomla.org/language/details3/fr-FR_details.xml', '', ''),
+	(7, 3, 0, 'Galician', '', 'pkg_gl-ES', 'package', '', 0, '3.3.1.2', '', 'http://update.joomla.org/language/details3/gl-ES_details.xml', '', ''),
+	(8, 3, 0, 'German', '', 'pkg_de-DE', 'package', '', 0, '3.4.8.1', '', 'http://update.joomla.org/language/details3/de-DE_details.xml', '', ''),
+	(9, 3, 0, 'Greek', '', 'pkg_el-GR', 'package', '', 0, '3.4.2.1', '', 'http://update.joomla.org/language/details3/el-GR_details.xml', '', ''),
+	(10, 3, 0, 'Japanese', '', 'pkg_ja-JP', 'package', '', 0, '3.4.8.1', '', 'http://update.joomla.org/language/details3/ja-JP_details.xml', '', ''),
+	(11, 3, 0, 'Hebrew', '', 'pkg_he-IL', 'package', '', 0, '3.1.1.1', '', 'http://update.joomla.org/language/details3/he-IL_details.xml', '', ''),
+	(12, 3, 0, 'Hungarian', '', 'pkg_hu-HU', 'package', '', 0, '3.4.8.1', '', 'http://update.joomla.org/language/details3/hu-HU_details.xml', '', ''),
+	(13, 3, 0, 'Afrikaans', '', 'pkg_af-ZA', 'package', '', 0, '3.4.5.1', '', 'http://update.joomla.org/language/details3/af-ZA_details.xml', '', ''),
+	(14, 3, 0, 'Arabic Unitag', '', 'pkg_ar-AA', 'package', '', 0, '3.4.4.1', '', 'http://update.joomla.org/language/details3/ar-AA_details.xml', '', ''),
+	(15, 3, 0, 'Belarusian', '', 'pkg_be-BY', 'package', '', 0, '3.2.1.1', '', 'http://update.joomla.org/language/details3/be-BY_details.xml', '', ''),
+	(17, 3, 0, 'EnglishAU', '', 'pkg_en-AU', 'package', '', 0, '3.4.8.1', '', 'http://update.joomla.org/language/details3/en-AU_details.xml', '', ''),
+	(18, 3, 0, 'Bulgarian', '', 'pkg_bg-BG', 'package', '', 0, '3.4.4.2', '', 'http://update.joomla.org/language/details3/bg-BG_details.xml', '', ''),
+	(19, 3, 0, 'Catalan', '', 'pkg_ca-ES', 'package', '', 0, '3.4.4.2', '', 'http://update.joomla.org/language/details3/ca-ES_details.xml', '', ''),
+	(20, 3, 0, 'Chinese Simplified', '', 'pkg_zh-CN', 'package', '', 0, '3.4.1.1', '', 'http://update.joomla.org/language/details3/zh-CN_details.xml', '', ''),
+	(21, 3, 0, 'EnglishUS', '', 'pkg_en-US', 'package', '', 0, '3.4.6.1', '', 'http://update.joomla.org/language/details3/en-US_details.xml', '', ''),
+	(22, 3, 0, 'Croatian', '', 'pkg_hr-HR', 'package', '', 0, '3.4.4.2', '', 'http://update.joomla.org/language/details3/hr-HR_details.xml', '', ''),
+	(23, 3, 0, 'Czech', '', 'pkg_cs-CZ', 'package', '', 0, '3.4.1.1', '', 'http://update.joomla.org/language/details3/cs-CZ_details.xml', '', ''),
+	(24, 3, 0, 'Danish', '', 'pkg_da-DK', 'package', '', 0, '3.4.4.1', '', 'http://update.joomla.org/language/details3/da-DK_details.xml', '', ''),
+	(25, 3, 0, 'Dutch', '', 'pkg_nl-NL', 'package', '', 0, '3.4.4.1', '', 'http://update.joomla.org/language/details3/nl-NL_details.xml', '', ''),
+	(26, 3, 0, 'Estonian', '', 'pkg_et-EE', 'package', '', 0, '3.4.4.1', '', 'http://update.joomla.org/language/details3/et-EE_details.xml', '', ''),
+	(27, 3, 0, 'Italian', '', 'pkg_it-IT', 'package', '', 0, '3.4.8.1', '', 'http://update.joomla.org/language/details3/it-IT_details.xml', '', ''),
+	(28, 3, 0, 'Khmer', '', 'pkg_km-KH', 'package', '', 0, '3.4.5.1', '', 'http://update.joomla.org/language/details3/km-KH_details.xml', '', ''),
+	(29, 3, 0, 'Korean', '', 'pkg_ko-KR', 'package', '', 0, '3.4.4.2', '', 'http://update.joomla.org/language/details3/ko-KR_details.xml', '', ''),
+	(30, 3, 0, 'Latvian', '', 'pkg_lv-LV', 'package', '', 0, '3.4.3.1', '', 'http://update.joomla.org/language/details3/lv-LV_details.xml', '', ''),
+	(31, 3, 0, 'Macedonian', '', 'pkg_mk-MK', 'package', '', 0, '3.4.5.1', '', 'http://update.joomla.org/language/details3/mk-MK_details.xml', '', ''),
+	(32, 3, 0, 'Norwegian Bokmal', '', 'pkg_nb-NO', 'package', '', 0, '3.4.5.1', '', 'http://update.joomla.org/language/details3/nb-NO_details.xml', '', ''),
+	(33, 3, 0, 'Norwegian Nynorsk', '', 'pkg_nn-NO', 'package', '', 0, '3.4.2.1', '', 'http://update.joomla.org/language/details3/nn-NO_details.xml', '', ''),
+	(34, 3, 0, 'Persian', '', 'pkg_fa-IR', 'package', '', 0, '3.4.8.1', '', 'http://update.joomla.org/language/details3/fa-IR_details.xml', '', ''),
+	(35, 3, 0, 'Polish', '', 'pkg_pl-PL', 'package', '', 0, '3.4.2.1', '', 'http://update.joomla.org/language/details3/pl-PL_details.xml', '', ''),
+	(36, 3, 0, 'Portuguese', '', 'pkg_pt-PT', 'package', '', 0, '3.4.5.1', '', 'http://update.joomla.org/language/details3/pt-PT_details.xml', '', ''),
+	(37, 3, 0, 'Russian', '', 'pkg_ru-RU', 'package', '', 0, '3.4.1.3', '', 'http://update.joomla.org/language/details3/ru-RU_details.xml', '', ''),
+	(38, 3, 0, 'Slovak', '', 'pkg_sk-SK', 'package', '', 0, '3.4.8.1', '', 'http://update.joomla.org/language/details3/sk-SK_details.xml', '', ''),
+	(39, 3, 0, 'Swedish', '', 'pkg_sv-SE', 'package', '', 0, '3.4.8.1', '', 'http://update.joomla.org/language/details3/sv-SE_details.xml', '', ''),
+	(40, 3, 0, 'Syriac', '', 'pkg_sy-IQ', 'package', '', 0, '3.4.5.1', '', 'http://update.joomla.org/language/details3/sy-IQ_details.xml', '', ''),
+	(41, 3, 0, 'Tamil', '', 'pkg_ta-IN', 'package', '', 0, '3.4.8.1', '', 'http://update.joomla.org/language/details3/ta-IN_details.xml', '', ''),
+	(42, 3, 0, 'Thai', '', 'pkg_th-TH', 'package', '', 0, '3.4.8.1', '', 'http://update.joomla.org/language/details3/th-TH_details.xml', '', ''),
+	(43, 3, 0, 'Turkish', '', 'pkg_tr-TR', 'package', '', 0, '3.4.8.1', '', 'http://update.joomla.org/language/details3/tr-TR_details.xml', '', ''),
+	(44, 3, 0, 'Ukrainian', '', 'pkg_uk-UA', 'package', '', 0, '3.4.4.1', '', 'http://update.joomla.org/language/details3/uk-UA_details.xml', '', ''),
+	(45, 3, 0, 'Uyghur', '', 'pkg_ug-CN', 'package', '', 0, '3.3.0.1', '', 'http://update.joomla.org/language/details3/ug-CN_details.xml', '', ''),
+	(46, 3, 0, 'Albanian', '', 'pkg_sq-AL', 'package', '', 0, '3.1.1.1', '', 'http://update.joomla.org/language/details3/sq-AL_details.xml', '', ''),
+	(47, 3, 0, 'Hindi', '', 'pkg_hi-IN', 'package', '', 0, '3.3.6.1', '', 'http://update.joomla.org/language/details3/hi-IN_details.xml', '', ''),
+	(48, 3, 0, 'Serbian Latin', '', 'pkg_sr-YU', 'package', '', 0, '3.4.4.1', '', 'http://update.joomla.org/language/details3/sr-YU_details.xml', '', ''),
+	(49, 3, 0, 'Spanish', '', 'pkg_es-ES', 'package', '', 0, '3.4.4.1', '', 'http://update.joomla.org/language/details3/es-ES_details.xml', '', ''),
+	(50, 3, 0, 'Bosnian', '', 'pkg_bs-BA', 'package', '', 0, '3.4.8.1', '', 'http://update.joomla.org/language/details3/bs-BA_details.xml', '', ''),
+	(51, 3, 0, 'Serbian Cyrillic', '', 'pkg_sr-RS', 'package', '', 0, '3.4.4.1', '', 'http://update.joomla.org/language/details3/sr-RS_details.xml', '', ''),
+	(52, 3, 0, 'Vietnamese', '', 'pkg_vi-VN', 'package', '', 0, '3.2.1.1', '', 'http://update.joomla.org/language/details3/vi-VN_details.xml', '', ''),
+	(53, 3, 0, 'Bahasa Indonesia', '', 'pkg_id-ID', 'package', '', 0, '3.3.0.2', '', 'http://update.joomla.org/language/details3/id-ID_details.xml', '', ''),
+	(54, 3, 0, 'Finnish', '', 'pkg_fi-FI', 'package', '', 0, '3.4.2.1', '', 'http://update.joomla.org/language/details3/fi-FI_details.xml', '', ''),
+	(55, 3, 0, 'Swahili', '', 'pkg_sw-KE', 'package', '', 0, '3.4.5.1', '', 'http://update.joomla.org/language/details3/sw-KE_details.xml', '', ''),
+	(56, 3, 0, 'Montenegrin', '', 'pkg_srp-ME', 'package', '', 0, '3.3.1.1', '', 'http://update.joomla.org/language/details3/srp-ME_details.xml', '', ''),
+	(57, 3, 0, 'EnglishCA', '', 'pkg_en-CA', 'package', '', 0, '3.4.6.1', '', 'http://update.joomla.org/language/details3/en-CA_details.xml', '', ''),
+	(58, 3, 0, 'FrenchCA', '', 'pkg_fr-CA', 'package', '', 0, '3.4.4.3', '', 'http://update.joomla.org/language/details3/fr-CA_details.xml', '', ''),
+	(59, 3, 0, 'Welsh', '', 'pkg_cy-GB', 'package', '', 0, '3.3.0.2', '', 'http://update.joomla.org/language/details3/cy-GB_details.xml', '', ''),
+	(60, 3, 0, 'Sinhala', '', 'pkg_si-LK', 'package', '', 0, '3.3.1.1', '', 'http://update.joomla.org/language/details3/si-LK_details.xml', '', ''),
+	(61, 3, 0, 'Dari Persian', '', 'pkg_prs-AF', 'package', '', 0, '3.4.4.1', '', 'http://update.joomla.org/language/details3/prs-AF_details.xml', '', ''),
+	(62, 3, 0, 'Turkmen', '', 'pkg_tk-TM', 'package', '', 0, '3.4.5.1', '', 'http://update.joomla.org/language/details3/tk-TM_details.xml', '', ''),
+	(63, 3, 0, 'Irish', '', 'pkg_ga-IE', 'package', '', 0, '3.4.5.2', '', 'http://update.joomla.org/language/details3/ga-IE_details.xml', '', ''),
+	(64, 3, 0, 'Dzongkha', '', 'pkg_dz-BT', 'package', '', 0, '3.4.5.1', '', 'http://update.joomla.org/language/details3/dz-BT_details.xml', '', '');
 /*!40000 ALTER TABLE `qtdpv_updates` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_update_sites
+-- Copiando estrutura para tabela localize.qtdpv_update_sites
 CREATE TABLE IF NOT EXISTS `qtdpv_update_sites` (
   `update_site_id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) DEFAULT '',
@@ -1769,25 +1833,25 @@ CREATE TABLE IF NOT EXISTS `qtdpv_update_sites` (
   PRIMARY KEY (`update_site_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='Update Sites';
 
--- Dumping data for table localize.qtdpv_update_sites: ~4 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_update_sites: ~5 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_update_sites` DISABLE KEYS */;
 INSERT INTO `qtdpv_update_sites` (`update_site_id`, `name`, `type`, `location`, `enabled`, `last_check_timestamp`, `extra_query`) VALUES
-	(1, 'Joomla! Core', 'collection', 'http://update.joomla.org/core/list.xml', 1, 1449514955, ''),
-	(2, 'Joomla! Extension Directory', 'collection', 'http://update.joomla.org/jed/list.xml', 1, 1449514955, ''),
-	(3, 'Accredited Joomla! Translations', 'collection', 'http://update.joomla.org/language/translationlist_3.xml', 1, 0, ''),
-	(4, 'Joomla! Update Component Update Site', 'extension', 'http://update.joomla.org/core/extensions/com_joomlaupdate.xml', 1, 1449514953, ''),
-	(5, 'WebInstaller Update Site', 'extension', 'http://appscdn.joomla.org/webapps/jedapps/webinstaller.xml', 1, 1449514953, '');
+	(1, 'Joomla! Core', 'collection', 'http://update.joomla.org/core/list.xml', 1, 1452453447, ''),
+	(2, 'Joomla! Extension Directory', 'collection', 'http://update.joomla.org/jed/list.xml', 1, 1452453447, ''),
+	(3, 'Accredited Joomla! Translations', 'collection', 'http://update.joomla.org/language/translationlist_3.xml', 1, 1452453446, ''),
+	(4, 'Joomla! Update Component Update Site', 'extension', 'http://update.joomla.org/core/extensions/com_joomlaupdate.xml', 1, 1452453446, ''),
+	(5, 'WebInstaller Update Site', 'extension', 'http://appscdn.joomla.org/webapps/jedapps/webinstaller.xml', 1, 1452453446, '');
 /*!40000 ALTER TABLE `qtdpv_update_sites` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_update_sites_extensions
+-- Copiando estrutura para tabela localize.qtdpv_update_sites_extensions
 CREATE TABLE IF NOT EXISTS `qtdpv_update_sites_extensions` (
   `update_site_id` int(11) NOT NULL DEFAULT '0',
   `extension_id` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`update_site_id`,`extension_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Links extensions to update sites';
 
--- Dumping data for table localize.qtdpv_update_sites_extensions: ~6 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_update_sites_extensions: ~6 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_update_sites_extensions` DISABLE KEYS */;
 INSERT INTO `qtdpv_update_sites_extensions` (`update_site_id`, `extension_id`) VALUES
 	(1, 700),
@@ -1799,7 +1863,7 @@ INSERT INTO `qtdpv_update_sites_extensions` (`update_site_id`, `extension_id`) V
 /*!40000 ALTER TABLE `qtdpv_update_sites_extensions` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_usergroups
+-- Copiando estrutura para tabela localize.qtdpv_usergroups
 CREATE TABLE IF NOT EXISTS `qtdpv_usergroups` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
   `parent_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Adjacency List Reference Id',
@@ -1813,7 +1877,7 @@ CREATE TABLE IF NOT EXISTS `qtdpv_usergroups` (
   KEY `idx_usergroup_nested_set_lookup` (`lft`,`rgt`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_usergroups: ~9 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_usergroups: ~9 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_usergroups` DISABLE KEYS */;
 INSERT INTO `qtdpv_usergroups` (`id`, `parent_id`, `lft`, `rgt`, `title`) VALUES
 	(1, 0, 1, 18, 'Public'),
@@ -1828,7 +1892,7 @@ INSERT INTO `qtdpv_usergroups` (`id`, `parent_id`, `lft`, `rgt`, `title`) VALUES
 /*!40000 ALTER TABLE `qtdpv_usergroups` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_users
+-- Copiando estrutura para tabela localize.qtdpv_users
 CREATE TABLE IF NOT EXISTS `qtdpv_users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL DEFAULT '',
@@ -1853,14 +1917,14 @@ CREATE TABLE IF NOT EXISTS `qtdpv_users` (
   KEY `email` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=565 DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_users: ~2 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_users: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_users` DISABLE KEYS */;
 INSERT INTO `qtdpv_users` (`id`, `name`, `username`, `email`, `password`, `block`, `sendEmail`, `registerDate`, `lastvisitDate`, `activation`, `params`, `lastResetTime`, `resetCount`, `otpKey`, `otep`, `requireReset`) VALUES
-	(564, 'Super User', 'admin', 'wdsmarques@gmail.com', '$2y$10$t60NXKoFxyTYxwVHZYF1CuKiCGSreRxMOu1hbCw.GHnswXFjpRale', 0, 1, '2015-11-23 11:47:17', '2015-12-07 19:02:32', '0', '', '0000-00-00 00:00:00', 0, '', '', 0);
+	(564, 'Super User', 'admin', 'vgb.info@gmail.com', '$2y$10$ja037HSsadPN39Lbh1odMeNvmK/.bQHzjLxEXj2CxIYpOaYLeXpsq', 0, 1, '2015-11-23 11:47:17', '2016-01-10 19:18:37', '0', '{}', '0000-00-00 00:00:00', 0, '', '', 0);
 /*!40000 ALTER TABLE `qtdpv_users` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_user_keys
+-- Copiando estrutura para tabela localize.qtdpv_user_keys
 CREATE TABLE IF NOT EXISTS `qtdpv_user_keys` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` varchar(255) NOT NULL,
@@ -1876,12 +1940,12 @@ CREATE TABLE IF NOT EXISTS `qtdpv_user_keys` (
   KEY `user_id` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_user_keys: ~0 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_user_keys: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_user_keys` DISABLE KEYS */;
 /*!40000 ALTER TABLE `qtdpv_user_keys` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_user_notes
+-- Copiando estrutura para tabela localize.qtdpv_user_notes
 CREATE TABLE IF NOT EXISTS `qtdpv_user_notes` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(10) unsigned NOT NULL DEFAULT '0',
@@ -1903,12 +1967,12 @@ CREATE TABLE IF NOT EXISTS `qtdpv_user_notes` (
   KEY `idx_category_id` (`catid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_user_notes: ~0 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_user_notes: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_user_notes` DISABLE KEYS */;
 /*!40000 ALTER TABLE `qtdpv_user_notes` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_user_profiles
+-- Copiando estrutura para tabela localize.qtdpv_user_profiles
 CREATE TABLE IF NOT EXISTS `qtdpv_user_profiles` (
   `user_id` int(11) NOT NULL,
   `profile_key` varchar(100) NOT NULL,
@@ -1917,26 +1981,26 @@ CREATE TABLE IF NOT EXISTS `qtdpv_user_profiles` (
   UNIQUE KEY `idx_user_id_profile_key` (`user_id`,`profile_key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Simple user profile storage table';
 
--- Dumping data for table localize.qtdpv_user_profiles: ~0 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_user_profiles: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_user_profiles` DISABLE KEYS */;
 /*!40000 ALTER TABLE `qtdpv_user_profiles` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_user_usergroup_map
+-- Copiando estrutura para tabela localize.qtdpv_user_usergroup_map
 CREATE TABLE IF NOT EXISTS `qtdpv_user_usergroup_map` (
   `user_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Foreign Key to #__users.id',
   `group_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Foreign Key to #__usergroups.id',
   PRIMARY KEY (`user_id`,`group_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_user_usergroup_map: ~2 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_user_usergroup_map: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_user_usergroup_map` DISABLE KEYS */;
 INSERT INTO `qtdpv_user_usergroup_map` (`user_id`, `group_id`) VALUES
 	(564, 8);
 /*!40000 ALTER TABLE `qtdpv_user_usergroup_map` ENABLE KEYS */;
 
 
--- Dumping structure for table localize.qtdpv_viewlevels
+-- Copiando estrutura para tabela localize.qtdpv_viewlevels
 CREATE TABLE IF NOT EXISTS `qtdpv_viewlevels` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
   `title` varchar(100) NOT NULL DEFAULT '',
@@ -1946,7 +2010,7 @@ CREATE TABLE IF NOT EXISTS `qtdpv_viewlevels` (
   UNIQUE KEY `idx_assetgroup_title_lookup` (`title`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
--- Dumping data for table localize.qtdpv_viewlevels: ~5 rows (approximately)
+-- Copiando dados para a tabela localize.qtdpv_viewlevels: ~5 rows (aproximadamente)
 /*!40000 ALTER TABLE `qtdpv_viewlevels` DISABLE KEYS */;
 INSERT INTO `qtdpv_viewlevels` (`id`, `title`, `ordering`, `rules`) VALUES
 	(1, 'Public', 0, '[1]'),
