@@ -5,7 +5,7 @@ class JConfig {
 	public $display_offline_message = '1';
 	public $offline_image = '';
 	public $sitename = 'Localize Imóveis';
-	public $editor = 'tinymce';
+	public $editor = 'jce';
 	public $captcha = '0';
 	public $list_limit = '20';
 	public $access = '1';
@@ -13,8 +13,8 @@ class JConfig {
 	public $debug_lang = '0';
 	public $dbtype = 'mysqli';
 	public $host = 'localhost';
-	public $user = 'localize';
-	public $password = 'localize.imoveis';
+	public $user = 'root';
+	public $password = '';
 	public $db = 'localize';
 	public $dbprefix = 'qtdpv_';
 	public $live_site = '';
@@ -50,7 +50,7 @@ class JConfig {
 	public $MetaVersion = '0';
 	public $robots = '';
 	public $sef = '1';
-	public $sef_rewrite = '0';
+	public $sef_rewrite = '1';
 	public $sef_suffix = '0';
 	public $unicodeslugs = '0';
 	public $feed_limit = '10';

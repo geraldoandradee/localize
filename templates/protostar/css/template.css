@@ -892,7 +892,7 @@ label {
 	display: block;
 	margin-bottom: 5px;
 }
-select,
+/*select,
 textarea,
 input[type="text"],
 input[type="password"],
@@ -920,7 +920,7 @@ input[type="color"],
 	-moz-border-radius: 3px;
 	border-radius: 3px;
 	vertical-align: middle;
-}
+}*/
 input,
 textarea,
 .uneditable-input {
@@ -6975,9 +6975,7 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 body.site {
-	border-top: 3px solid #0088cc;
-	padding: 20px;
-	background-color: #f4f6f7;
+	background-color: #FFF;
 }
 body.site.fluid {
 	background-color: #ffffff;

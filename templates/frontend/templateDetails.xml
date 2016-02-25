@@ -44,6 +44,7 @@
 		<position>menu</position>
 		<position>mapa-home</position>
 		<position>pesquisar</position>
+		<position>anuncios-home</position>
 	</positions>
 	
 	<config>

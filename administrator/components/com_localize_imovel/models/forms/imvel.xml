@@ -25,7 +25,6 @@
             alias_generator="2165606"
             heading="h4"
             close="true" /> 
-
        <field name="valor" type="text"
                 
             label="COM_LOCALIZE_IMOVEL_FORM_LBL_IMVEL_VALOR"

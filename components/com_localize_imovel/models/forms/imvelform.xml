@@ -29,7 +29,16 @@
                 <option value=""></option>
      </group>
         </field> 
-
+<field name="tipo" type="list"
+                
+            label="COM_LOCALIZE_IMOVEL_FORM_LBL_IMVEL_TIPO"
+            description="COM_LOCALIZE_IMOVEL_FORM_DESC_IMVEL_TIPO" 
+                
+                
+                 required="true" >
+                <option value="1">Comprar</option>
+                <option value="2">Alugar</option>
+        </field> 
        <field name="valor" type="text"
                 
             label="COM_LOCALIZE_IMOVEL_FORM_LBL_IMVEL_VALOR"

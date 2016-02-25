@@ -23,6 +23,12 @@
 		<folder>js</folder>
 		<folder>language</folder>
 		<folder>less</folder>
+                
+                <position>logotipo</position>
+		<position>menu</position>
+		<position>mapa-home</position>
+		<position>pesquisar</position>
+		<position>anuncios-home</position>
 	</files>
 	<positions>
 		<position>banner</position>
