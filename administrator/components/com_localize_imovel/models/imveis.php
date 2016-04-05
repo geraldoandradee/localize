@@ -171,14 +171,14 @@ class Localize_imovelModelImveis extends JModelList
 		$query->select('`created_by`.name AS `created_by`');
 		$query->join('LEFT', '#__users AS `created_by` ON `created_by`.id = a.`created_by`');
 		// Join over the foreign key 'construtora'
-		$query->select('#__localize_imovel_2165642.`nome` AS imveis_nome_2165642');
-		$query->join('LEFT', '#__localize_imovel AS #__localize_imovel_2165642 ON #__localize_imovel_2165642.`id` = a.`construtora`');
-		// Join over the foreign key 'imobiliaria'
-		$query->select('#__localize_imovel_2165643.`id` AS imveis_id_2165643');
-		$query->join('LEFT', '#__localize_imovel AS #__localize_imovel_2165643 ON #__localize_imovel_2165643.`construtora` = a.`imobiliaria`');
-		// Join over the foreign key 'imobiliaria2'
-		$query->select('#__localize_imovel_2165644.`id` AS imveis_id_2165644');
-		$query->join('LEFT', '#__localize_imovel AS #__localize_imovel_2165644 ON #__localize_imovel_2165644.`construtora` = a.`imobiliaria2`');
+//		$query->select('#__localize_imovel_2165642.`nome` AS imveis_nome_2165642');
+//		$query->join('LEFT', '#__localize_imovel AS #__localize_imovel_2165642 ON #__localize_imovel_2165642.`id` = a.`construtora`');
+//		// Join over the foreign key 'imobiliaria'
+//		$query->select('#__localize_imovel_2165643.`id` AS imveis_id_2165643');
+//		$query->join('LEFT', '#__localize_imovel AS #__localize_imovel_2165643 ON #__localize_imovel_2165643.`construtora` = a.`imobiliaria`');
+//		// Join over the foreign key 'imobiliaria2'
+//		$query->select('#__localize_imovel_2165644.`id` AS imveis_id_2165644');
+//		$query->join('LEFT', '#__localize_imovel AS #__localize_imovel_2165644 ON #__localize_imovel_2165644.`construtora` = a.`imobiliaria2`');
 
 		// Filter by published state
 		$published = $this->getState('filter.state');
@@ -245,19 +245,20 @@ class Localize_imovelModelImveis extends JModelList
 
 		//Filtering construtora
 		$filter_construtora = $this->state->get("filter.construtora");
-		if ($filter_construtora) {
+		if ($filter_construtora && $filter_construtora != '0') {
 			$query->where("FIND_IN_SET('" . $db->escape($filter_construtora) . "',a.construtora)");
 		}
 
 		//Filtering imobiliaria
 		$filter_imobiliaria = $this->state->get("filter.imobiliaria");
-		if ($filter_imobiliaria) {
+		if ($filter_imobiliaria && $filter_imobiliaria != '0') {
 			$query->where("a.`imobiliaria` = '".$db->escape($filter_imobiliaria)."'");
 		}
 
 		//Filtering imobiliaria2
 		$filter_imobiliaria2 = $this->state->get("filter.imobiliaria2");
-		if ($filter_imobiliaria2) {
+//                var_dump($filter_construtora);
+		if ($filter_imobiliaria2 && $filter_imobiliaria2 != '0') {
 			$query->where("a.`imobiliaria2` = '".$db->escape($filter_imobiliaria2)."'");
 		}
 		// Add the list ordering clause.
@@ -268,7 +269,7 @@ class Localize_imovelModelImveis extends JModelList
 		{
 			$query->order($db->escape($orderCol . ' ' . $orderDirn));
 		}
-
+//                die($query);
 		return $query;
 	}
 

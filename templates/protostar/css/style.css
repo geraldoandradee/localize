@@ -8769,3 +8769,19 @@ a img.calendar {
     cursor: pointer;
     vertical-align: middle
 }
+.recomendados_info .btn.btn-primary {
+    padding: 6px 8px;
+}
+.gallery div {
+    text-align: center;
+    padding: 2px;
+    border: 1px solid #47C2C5;
+}
+.gallery{
+    position: relative;
+    float: left;
+}
+.gallery .big {
+    border-bottom: none;
+    width: 420px;
+}

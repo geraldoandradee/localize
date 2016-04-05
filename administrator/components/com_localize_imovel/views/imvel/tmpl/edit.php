@@ -139,6 +139,10 @@ $document->addStyleSheet('media/com_localize_imovel/css/localize_imovel.css');
 				<div class="controls"><?php echo $this->form->getInput('num_quartos'); ?></div>
 			</div>
 			<div class="control-group">
+				<div class="control-label"><?php echo $this->form->getLabel('num_banheiros'); ?></div>
+				<div class="controls"><?php echo $this->form->getInput('num_banheiros'); ?></div>
+			</div>
+			<div class="control-group">
 				<div class="control-label"><?php echo $this->form->getLabel('num_vagas'); ?></div>
 				<div class="controls"><?php echo $this->form->getInput('num_vagas'); ?></div>
 			</div>
