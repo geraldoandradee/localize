@@ -259,3 +259,24 @@ if ($this->params->get('logoFile')) {
         <jdoc:include type="modules" name="debug" style="none" />
     </body>
 </html>
+<script>
+    jQuery(".recomendados_info a").click(function () {
+        alert(jQuery(this).attr("href"));
+    });
+    jQuery(".form-imovel .btn-success").click(function () {
+        alert(jQuery(".form-imovel").attr("id"));
+    });
+    jQuery("#gostei").click(function () {
+        if(jQuery(this).attr("like")=="default"){
+            jQuery("#gostei img").attr("src","<?= JUri::base() . "templates/protostar/images/like/like.png" ?>");
+            jQuery(this).attr("like","gostei");
+        }else if(jQuery(this).attr("like")=="gostei"){
+            jQuery("#gostei img").attr("src","<?= JUri::base() . "templates/protostar/images/like/dislike.png" ?>");
+            jQuery(this).attr("like","ngostei");
+        }else if(jQuery(this).attr("like")=="ngostei"){
+            jQuery("#gostei img").attr("src","<?= JUri::base() . "templates/protostar/images/like/like_off.png" ?>");
+            jQuery(this).attr("like","default");
+        }
+//        alert(jQuery(".form-imovel").attr("id"));
+    });
+</script>

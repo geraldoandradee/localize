@@ -15,6 +15,15 @@ if (!$canEdit && JFactory::getUser()->authorise('core.edit.own', 'com_localize_i
 }
 ?>
 <?php if ($this->item) : ?>
+
+    <div class="span12 item_like">
+        <div class="span10"></div>
+        <div class="span2">
+            <a href="#" id="gostei" class="<?= $this->item->id; ?>" like="default">                
+                <img src="<?= JUri::base() . "templates/protostar/images/like/like_off.png" ?>" alt="Gostei deste Imóvel" title="Gostei deste Imóvel" />
+            </a>
+        </div>
+    </div>
     <div class="span12 item_fields">
         <div class="span6">
             <div class="gallery">
@@ -42,7 +51,25 @@ if (!$canEdit && JFactory::getUser()->authorise('core.edit.own', 'com_localize_i
 
             </div>
         </div>
-        <div class="span6"><?php echo $this->item->nome; ?></div>
+        <div class="span6">
+            <form class="form-imovel" id="<?= $this->item->id; ?>" method="post">
+                <fieldset>
+                    <legend>Fale com o vendedor</legend>
+                    <label for="nome" class="span6">Nome</label>
+                    <input type="text" name="nome" class="span6" />
+                    <label for="email" class="span6">E-mail</label>
+                    <input type="text" name="email" class="span6" />
+                    <label for="telefone" class="span6">Telefone</label>
+                    <input type="text" name="telefone" class="span6" />
+                    <label for="mensagem" class="span6">Mensagem</label>
+                    <textarea type="text" name="mensagem" class="span6" ></textarea>
+                    <div class="btn-control" style="float:right; margin-top: 10px;">
+                        <button class="btn btn-danger" type="reset">Limpar</button>
+                        <button class="btn btn-success" type="submit">Enviar</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
     </div>
     <link href='http://fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet' type='text/css'>
     <link href='<?= JUri::base() ?>templates/protostar/css/dist/simplelightbox.min.css' rel='stylesheet' type='text/css'>
@@ -214,3 +241,4 @@ if (!$canEdit && JFactory::getUser()->authorise('core.edit.own', 'com_localize_i
 else:
     echo JText::_('COM_LOCALIZE_IMOVEL_ITEM_NOT_LOADED');
 endif;
+

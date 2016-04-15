@@ -1,3 +1,7 @@
+#gostei img {
+    width: 80px;
+    float: right;
+}
 article,
 aside,
 details,
@@ -895,7 +899,7 @@ label {
 	display: block;
 	margin-bottom: 5px;
 }
-select,
+/*select,
 textarea,
 input[type="text"],
 input[type="password"],
@@ -923,7 +927,7 @@ input[type="color"],
 	-moz-border-radius: 3px;
 	border-radius: 3px;
 	vertical-align: middle;
-}
+}*/
 input,
 textarea,
 .uneditable-input {
@@ -5236,16 +5240,16 @@ a.badge:focus {
 	[class*="span"] {
 		float: left;
 		min-height: 1px;
-		margin-left: 20px;
+		/*margin-left: 20px;*/
 	}
 	.container,
 	.navbar-static-top .container,
 	.navbar-fixed-top .container,
 	.navbar-fixed-bottom .container {
-		width: 940px;
+		width: 960px;
 	}
 	.span12 {
-		width: 940px;
+		width: 960px;
 	}
 	.span11 {
 		width: 860px;
@@ -6981,9 +6985,9 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 body.site {
-	border-top: 3px solid #0088cc;
+/*	border-top: 3px solid #0088cc;
 	padding: 20px;
-	background-color: #f4f6f7;
+	background-color: #f4f6f7;*/
 }
 body.site.fluid {
 	background-color: #ffffff;

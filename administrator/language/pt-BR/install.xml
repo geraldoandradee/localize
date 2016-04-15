@@ -2,8 +2,8 @@
 <extension version="3.5" client="administrator" type="language" method="upgrade">
 	<name>Português do Brasil (pt-BR)</name>
 	<tag>pt-BR</tag>
-	<version>3.5.0.1</version>
-	<creationDate>2016-03-23</creationDate>
+	<version>3.5.1.1</version>
+	<creationDate>2016-04-07</creationDate>
 	<author>Equipe de Tradução Português do Brasil</author>
 	<authorEmail>pt-br@joomlacarioca.com.br</authorEmail>
 	<authorUrl>http://brasil.joomla.com</authorUrl>

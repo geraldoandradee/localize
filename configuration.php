@@ -5,7 +5,7 @@ class JConfig {
 	public $display_offline_message = '1';
 	public $offline_image = '';
 	public $sitename = 'Localize Imóveis';
-	public $editor = 'jce';
+	public $editor = 'tinymce';
 	public $captcha = '0';
 	public $list_limit = '20';
 	public $access = '1';
@@ -89,4 +89,5 @@ class JConfig {
 	public $cookie_domain = '';
 	public $cookie_path = '';
 	public $asset_id = '1';
+	public $cache_platformprefix = '0';
 }
