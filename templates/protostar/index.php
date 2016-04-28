@@ -154,15 +154,17 @@ if ($this->params->get('logoFile')) {
                 </div>
             </div>
         </div>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12" id="mapa-home">
-                    <jdoc:include type="modules" name="mapa-home" style="none" />
-                    <div class="col-md-12" id="pesquisar"><jdoc:include type="modules" name="pesquisar" style="none" /></div>
-                </div>
+        <?php if ($this->countModules('mapa-home')) : ?>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12" id="mapa-home">
+                        <jdoc:include type="modules" name="mapa-home" style="none" />
+                        <div class="col-md-12" id="pesquisar"><jdoc:include type="modules" name="pesquisar" style="none" /></div>
+                    </div>
 
-            </div>
-        </div>
+                </div>
+            </div>  
+        <?php endif; ?>
         <div class="container">
             <div class="row" id="recomendados">
                 <div class="col-md-12">
@@ -259,24 +261,4 @@ if ($this->params->get('logoFile')) {
         <jdoc:include type="modules" name="debug" style="none" />
     </body>
 </html>
-<script>
-    jQuery(".recomendados_info a").click(function () {
-        alert(jQuery(this).attr("href"));
-    });
-    jQuery(".form-imovel .btn-success").click(function () {
-        alert(jQuery(".form-imovel").attr("id"));
-    });
-    jQuery("#gostei").click(function () {
-        if(jQuery(this).attr("like")=="default"){
-            jQuery("#gostei img").attr("src","<?= JUri::base() . "templates/protostar/images/like/like.png" ?>");
-            jQuery(this).attr("like","gostei");
-        }else if(jQuery(this).attr("like")=="gostei"){
-            jQuery("#gostei img").attr("src","<?= JUri::base() . "templates/protostar/images/like/dislike.png" ?>");
-            jQuery(this).attr("like","ngostei");
-        }else if(jQuery(this).attr("like")=="ngostei"){
-            jQuery("#gostei img").attr("src","<?= JUri::base() . "templates/protostar/images/like/like_off.png" ?>");
-            jQuery(this).attr("like","default");
-        }
-//        alert(jQuery(".form-imovel").attr("id"));
-    });
-</script>
+

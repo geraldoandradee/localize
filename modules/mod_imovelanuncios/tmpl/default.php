@@ -47,7 +47,7 @@ include('css.php');
         <div class="row recomendados_info">
             <div class="col-md-6 preco"><?= 'R$' . number_format($item->valor, 2, ',', '.'); ?></div>
             <div class="col-md-5">
-                <a href="<?= JUri::base().'imoveis/imvel/'.$item->id; ?>" class="btn btn-primary">Ver Detalhes</a>
+                <a href="<?= JUri::base().'imoveis/imvel/'.$item->id; ?>" id="<?= $item->id ?>" class="btn btn-primary">Ver Detalhes</a>
             </div>
         </div>
     </div>

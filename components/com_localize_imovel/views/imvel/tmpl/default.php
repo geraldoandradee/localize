@@ -9,18 +9,48 @@
 // No direct access
 defined('_JEXEC') or die;
 
+function retornaLike($idUser, $idImovel) {
+    $db = JFactory::getDbo();
+    $query = $db->getQuery(true);
+//    $query = "SELECT ri.id FROM qtdpv_recomendacao_imovel ri WHERE ri.id_imovel = $idImovel AND ri.id_user = $idUser";
+
+    $query
+            ->select('*')
+            ->from('#__recomendacao_imovel')
+            ->where('id_imovel = ' . intval($idImovel))
+            ->where('id_user = ' . intval($idUser));
+    $db->setQuery($query);
+    $obj = $db->loadObject();
+    $like = "";
+    $like->img = JUri::base() . "templates/protostar/images/like/like_off.png";
+    $like->desc = "default";
+
+    if ($obj->like > 0) {
+        $like->img = JUri::base() . "templates/protostar/images/like/like.png";
+        $like->desc = "gostei";
+    }elseif($obj->like < 0){
+        $like->img = JUri::base() . "templates/protostar/images/like/dislike.png";
+        $like->desc = "ngostei";        
+    }
+ 
+    return $like;
+}
+
+$user = JFactory::getUser();
+
+$imovel = $this->item->id;
 $canEdit = JFactory::getUser()->authorise('core.edit', 'com_localize_imovel.' . $this->item->id);
 if (!$canEdit && JFactory::getUser()->authorise('core.edit.own', 'com_localize_imovel' . $this->item->id)) {
     $canEdit = JFactory::getUser()->id == $this->item->created_by;
 }
 ?>
 <?php if ($this->item) : ?>
-
+<?php $verifLike = retornaLike($user->id, $imovel) ?>
     <div class="span12 item_like">
         <div class="span10"></div>
         <div class="span2">
-            <a href="#" id="gostei" class="<?= $this->item->id; ?>" like="default">                
-                <img src="<?= JUri::base() . "templates/protostar/images/like/like_off.png" ?>" alt="Gostei deste Imóvel" title="Gostei deste Imóvel" />
+            <a href="#" id="gostei" class="<?= $this->item->id; ?>" like="<?= $verifLike->desc ?>">                
+                <img src="<?= $verifLike->img; ?>" alt="Gostou deste imóvel? Curta!" title="Gostou deste imóvel? Curta!" />
             </a>
         </div>
     </div>
@@ -241,4 +271,69 @@ if (!$canEdit && JFactory::getUser()->authorise('core.edit.own', 'com_localize_i
 else:
     echo JText::_('COM_LOCALIZE_IMOVEL_ITEM_NOT_LOADED');
 endif;
-
+?>
+<script>
+//    jQuery(document).ready(function (e) {        
+    jQuery.ajax({
+        type: 'post',
+        url: '<?= JUri::base() . 'recomendar_imovel.php' ?>',
+        data: {
+            imovel: <?= $imovel; ?>,
+            user: <?= $user->id; ?>,
+            acesso: 1
+        }
+    });
+//    });
+    jQuery(".form-imovel .btn-success").click(function (e) {
+    e.stopPropagation();
+        jQuery.ajax({
+                type: 'post',
+                url: '<?= JUri::base() . 'recomendar_imovel.php' ?>',
+                data: {
+                    imovel: <?= $imovel; ?>,
+                    user: <?= $user->id; ?>,
+                    formulario: 5
+                }
+            });
+    });
+    jQuery("#gostei").click(function () {
+        if (jQuery(this).attr("like") == "default") {
+            jQuery.ajax({
+                type: 'post',
+                url: '<?= JUri::base() . 'recomendar_imovel.php' ?>',
+                data: {
+                    imovel: <?= $imovel; ?>,
+                    user: <?= $user->id; ?>,
+                    like: 4
+                }
+            });
+            jQuery("#gostei img").attr("src", "<?= JUri::base() . "templates/protostar/images/like/like.png" ?>");
+            jQuery(this).attr("like", "gostei");
+        } else if (jQuery(this).attr("like") == "gostei") {
+            jQuery.ajax({
+                type: 'post',
+                url: '<?= JUri::base() . 'recomendar_imovel.php' ?>',
+                data: {
+                    imovel: <?= $imovel; ?>,
+                    user: <?= $user->id; ?>,
+                    like: -5
+                }
+            });
+            jQuery("#gostei img").attr("src", "<?= JUri::base() . "templates/protostar/images/like/dislike.png" ?>");
+            jQuery(this).attr("like", "ngostei");
+        } else if (jQuery(this).attr("like") == "ngostei") {
+            jQuery.ajax({
+                type: 'post',
+                url: '<?= JUri::base() . 'recomendar_imovel.php' ?>',
+                data: {
+                    imovel: <?= $imovel; ?>,
+                    user: <?= $user->id; ?>,
+                    like: 0
+                }
+            });
+            jQuery("#gostei img").attr("src", "<?= JUri::base() . "templates/protostar/images/like/like_off.png" ?>");
+            jQuery(this).attr("like", "default");
+        }
+//        alert(jQuery(".form-imovel").attr("id"));
+    });
+</script>
