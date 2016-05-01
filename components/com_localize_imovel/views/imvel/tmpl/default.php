@@ -38,6 +38,26 @@ function retornaLike($idUser, $idImovel) {
     return $like;
 }
 
+function retornaConstrutora($idImovel) {
+    $query = "SELECT * "
+            . " FROM #__localize_empresa"
+            . " WHERE id = (select construtora from qtdpv_localize_imovel where id = " . $idImovel . ")";
+    $db = JFactory::getDbo();
+    $db->setQuery($query);
+    $obj = $db->loadObject();
+    return $obj;
+}
+
+function retornaImobiliaria($idImovel) {
+    $query = "SELECT * "
+            . " FROM #__localize_empresa"
+            . " WHERE id = (select imobiliaria from qtdpv_localize_imovel where id = " . $idImovel . ")";
+    $db = JFactory::getDbo();
+    $db->setQuery($query);
+    $obj = $db->loadObject();
+    return $obj;
+}
+
 $user = JFactory::getUser();
 setlocale(LC_MONETARY, 'pt_BR');
 $imovel = $this->item->id;
@@ -87,10 +107,29 @@ if (!$canEdit && JFactory::getUser()->authorise('core.edit.own', 'com_localize_i
                 </div>
             </div>
             <div class="info-imovel">
-                <?php echo 'R$ ' . number_format($this->item->valor, 2, ',', '.') . " - " . $this->item->metragem . " m²";; ?>
+                <div class="construtora">
+                    <div class="nome">Construtora</div>
+                    <div class="logo">
+                        <a href="<?= "http://".retornaConstrutora($this->item->id)->link; ?>" target="_blank">
+                            <img src="<?= retornaConstrutora($this->item->id)->logo; ?>" alt="<?= retornaConstrutora($this->item->id)->nome; ?>" title="<?= retornaConstrutora($this->item->id)->nome; ?>" />
+                        </a>
+                    </div>
+                </div>
+                <div class="construtora">
+                    <div class="nome">Imobiliária</div>
+                    <div class="logo">
+                        <a href="<?= retornaImobiliaria($this->item->id)->link; ?>" target="_blank">
+                            <img src="<?= retornaImobiliaria($this->item->id)->logo; ?>" alt="<?= retornaImobiliaria($this->item->id)->nome; ?>" title="<?= retornaImobiliaria($this->item->id)->nome; ?>" />
+                        </a>
+                    </div>
+                </div>
+                <div class="valor-imovel">
+    <?php echo 'R$ ' . number_format($this->item->valor, 2, ',', '.') . " - " . $this->item->metragem . " m²"; ?>                    
+                </div>
             </div>
         </div>
         <div class="formulario_imovel">
+            <h3>Fale com o vendedor</h3>
             <?php
             $document = &JFactory::getDocument();
             $renderer = $document->loadRenderer('modules');

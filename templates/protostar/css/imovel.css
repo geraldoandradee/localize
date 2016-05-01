@@ -52,7 +52,7 @@ and open the template in the editor.
     overflow: hidden;
 }
 /*Informações do imóvel*/
-.info-imovel {
+.valor-imovel {
     font-size: 35px;
     font-family: 'Open Sans', sans-serif;
     /* font-weight: bold; */
@@ -61,12 +61,35 @@ and open the template in the editor.
     letter-spacing: -1px;
     margin-top: 4px;
 }
+.construtora {
+    float: left;
+    background: #FFF;
+    text-align: center;
+    border: 1px solid;
+    padding: 3px;
+    margin-right: 6px;
+}
+.nome {
+    font-size: 12px;
+}
+.logo {
+    width: 64px;
+    float: left;
+    border: 1px solid #DDD;
+}
 
 /*Formulário*/
 .formulario_imovel {
     float: left;
     width: calc(45% - 22px);
     margin-left: 22px;
+}
+.formulario_imovel h3 {
+    border-bottom: 1px solid #DDD;
+    padding-bottom: 9px;
+    margin-bottom: 10px;
+    margin-top: 6px;
+    color: #EF7E4E;
 }
 .formulario_imovel label{
     clear: both !important;
