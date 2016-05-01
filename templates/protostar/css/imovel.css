@@ -1,0 +1,104 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 30/04/2016, 23:59:06
+    Author     : Victor
+*/
+
+.item_fields {
+    position: relative;
+    float: left;
+    width: 100%;
+    margin-bottom: 35px;
+}
+.esq-fields {
+    position: relative;
+    float: left;
+    width: 55%;
+    background: #FAFAFA;
+    padding: 13px 7px;
+    box-shadow: 0px 0px 1px 1px #CCC;
+    margin-top: 10px;
+}
+.galeria_imovel {
+    position: relative;
+    float: left;
+    width: 100%;
+}
+.gallery {
+    position: relative;
+    float: left;
+    width: 100%;
+}
+.recomendados_info .btn.btn-primary {
+    padding: 6px 8px;
+}
+.gallery div {
+    text-align: center;
+    padding: 2px;
+    /*border: 1px solid #47C2C5;*/
+}
+.mini {
+    width: 24.7%;
+    float: left;
+}
+.gallery .big {
+    width: 75%;
+    height: 231px;
+    float: left;
+    overflow: hidden;
+}
+/*Informações do imóvel*/
+.info-imovel {
+    font-size: 35px;
+    font-family: 'Open Sans', sans-serif;
+    /* font-weight: bold; */
+    color: #EF7E4E;
+    float: right;
+    letter-spacing: -1px;
+    margin-top: 4px;
+}
+
+/*Formulário*/
+.formulario_imovel {
+    float: left;
+    width: calc(45% - 22px);
+    margin-left: 22px;
+}
+.formulario_imovel label{
+    clear: both !important;
+    width: 100% !important;
+    margin-bottom: 3px !important;
+}
+.formulario_imovel .bfQuickMode section input[type='text'], 
+.formulario_imovel .bfQuickMode section textarea, 
+.formulario_imovel .bfQuickMode section select {
+    width: 100% !important;
+    padding: 3px 7px !important;
+}
+.formulario_imovel section{
+    margin-bottom: 6px !important;
+}
+.formulario_imovel section:hover{
+    background: none !important;
+}
+button#bfSubmitButton,
+button.bfCancelButton{
+    margin: 0 4px;
+    padding: 6px 30px;
+    font-size: 15px;
+}
+
+/*Botão like*/
+.item_like {
+    margin-bottom: 10px;
+}
+.item_like {
+    margin-bottom: 10px;
+    float: right;
+    clear: both;
+    width: 100%;
+}

@@ -21,7 +21,6 @@ class modrecomendacaoHelper {
     }
 
     function getListImoveis() {
-//        ini_set("display_errors", "On");
         $imoveis = modrecomendacaoHelper::getListQueryImoveis();
         $imovelActive = modrecomendacaoHelper::getListImovelActive();
 

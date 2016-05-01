@@ -9,6 +9,8 @@
 // No direct access
 defined('_JEXEC') or die;
 
+//error_reporting(E_ALL);
+//ini_set("display_errors", "On");
 function retornaLike($idUser, $idImovel) {
     $db = JFactory::getDbo();
     $query = $db->getQuery(true);
@@ -28,16 +30,16 @@ function retornaLike($idUser, $idImovel) {
     if ($obj->like > 0) {
         $like->img = JUri::base() . "templates/protostar/images/like/like.png";
         $like->desc = "gostei";
-    }elseif($obj->like < 0){
+    } elseif ($obj->like < 0) {
         $like->img = JUri::base() . "templates/protostar/images/like/dislike.png";
-        $like->desc = "ngostei";        
+        $like->desc = "ngostei";
     }
- 
+
     return $like;
 }
 
 $user = JFactory::getUser();
-
+setlocale(LC_MONETARY, 'pt_BR');
 $imovel = $this->item->id;
 $canEdit = JFactory::getUser()->authorise('core.edit', 'com_localize_imovel.' . $this->item->id);
 if (!$canEdit && JFactory::getUser()->authorise('core.edit.own', 'com_localize_imovel' . $this->item->id)) {
@@ -45,60 +47,57 @@ if (!$canEdit && JFactory::getUser()->authorise('core.edit.own', 'com_localize_i
 }
 ?>
 <?php if ($this->item) : ?>
-<?php $verifLike = retornaLike($user->id, $imovel) ?>
-    <div class="span12 item_like">
-        <div class="span10"></div>
-        <div class="span2">
-            <a href="#" id="gostei" class="<?= $this->item->id; ?>" like="<?= $verifLike->desc ?>">                
-                <img src="<?= $verifLike->img; ?>" alt="Gostou deste imóvel? Curta!" title="Gostou deste imóvel? Curta!" />
-            </a>
-        </div>
+    <?php $verifLike = retornaLike($user->id, $imovel) ?>
+    <div class="item_like">
+        <a href="#" id="gostei" class="<?= $this->item->id; ?>" like="<?= $verifLike->desc ?>">                
+            <img src="<?= $verifLike->img; ?>" alt="Gostou deste imóvel? Curta!" title="Gostou deste imóvel? Curta!" />
+        </a>
     </div>
-    <div class="span12 item_fields">
-        <div class="span6">
-            <div class="gallery">
-                <div class="span6 big">
-                    <a href="<?= $this->item->imagem1; ?>" class="">                
-                        <img src="<?= $this->item->imagem1; ?>" alt="<?= $this->item->legenda_img1; ?>" title="<?= $this->item->legenda_img1; ?>"/>
-                    </a>
-                </div>
-                <div class="span2">
-                    <a href="<?= $this->item->imagem1; ?>" class="">
-                        <img src="<?= $this->item->imagem1; ?>" alt="<?= $this->item->legenda_img1; ?>" title="<?= $this->item->legenda_img1; ?>"/>
-                    </a>
-                </div>
-                <div class="span2">
-                    <a href="<?= $this->item->imagem1; ?>" class="">
-                        <img src="<?= $this->item->imagem1; ?>" alt="<?= $this->item->legenda_img1; ?>" title="<?= $this->item->legenda_img1; ?>"/>
-                    </a>
-                </div>
-                <div class="span2">
-                    <a href="<?= $this->item->imagem1; ?>" class="">
-                        <img src="<?= $this->item->imagem1; ?>" alt="<?= $this->item->legenda_img1; ?>" title="<?= $this->item->legenda_img1; ?>"/>
-                    </a>
-                </div>
-                <!--<div class="clear"></div>-->
+    <div class="header">
+        <h2><?php echo $this->item->nome; ?></h2>    
+    </div>
+    <div class="item_fields">
+        <div class="esq-fields">
+            <div class="galeria_imovel">
+                <div class="gallery">                
+                    <div class="big">
+                        <div class="big-img">
+                            <a href="<?= $this->item->imagem1; ?>" class="">                
+                                <img src="<?= $this->item->imagem1; ?>" alt="<?= $this->item->legenda_img1; ?>" title="<?= $this->item->legenda_img1; ?>"/>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="mini">
+                        <a href="<?= $this->item->imagem1; ?>" class="">
+                            <img src="<?= $this->item->imagem1; ?>" alt="<?= $this->item->legenda_img1; ?>" title="<?= $this->item->legenda_img1; ?>"/>
+                        </a>
+                    </div>
+                    <div class="mini">
+                        <a href="<?= $this->item->imagem1; ?>" class="">
+                            <img src="<?= $this->item->imagem1; ?>" alt="<?= $this->item->legenda_img1; ?>" title="<?= $this->item->legenda_img1; ?>"/>
+                        </a>
+                    </div>
+                    <div class="mini">
+                        <a href="<?= $this->item->imagem1; ?>" class="">
+                            <img src="<?= $this->item->imagem1; ?>" alt="<?= $this->item->legenda_img1; ?>" title="<?= $this->item->legenda_img1; ?>"/>
+                        </a>
+                    </div>
+                    <!--<div class="clear"></div>-->
 
+                </div>
+            </div>
+            <div class="info-imovel">
+                <?php echo 'R$ ' . number_format($this->item->valor, 2, ',', '.') . " - " . $this->item->metragem . " m²";; ?>
             </div>
         </div>
-        <div class="span6">
-            <form class="form-imovel" id="<?= $this->item->id; ?>" method="post">
-                <fieldset>
-                    <legend>Fale com o vendedor</legend>
-                    <label for="nome" class="span6">Nome</label>
-                    <input type="text" name="nome" class="span6" />
-                    <label for="email" class="span6">E-mail</label>
-                    <input type="text" name="email" class="span6" />
-                    <label for="telefone" class="span6">Telefone</label>
-                    <input type="text" name="telefone" class="span6" />
-                    <label for="mensagem" class="span6">Mensagem</label>
-                    <textarea type="text" name="mensagem" class="span6" ></textarea>
-                    <div class="btn-control" style="float:right; margin-top: 10px;">
-                        <button class="btn btn-danger" type="reset">Limpar</button>
-                        <button class="btn btn-success" type="submit">Enviar</button>
-                    </div>
-                </fieldset>
-            </form>
+        <div class="formulario_imovel">
+            <?php
+            $document = &JFactory::getDocument();
+            $renderer = $document->loadRenderer('modules');
+            $position = 'formulario-imovel';
+            $options = array('style' => 'raw');
+            echo $renderer->render($position, $options, null);
+            ?>
         </div>
     </div>
     <link href='http://fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet' type='text/css'>
@@ -154,63 +153,6 @@ if (!$canEdit && JFactory::getUser()->authorise('core.edit.own', 'com_localize_i
     <div class="item_fields">
         <table class="table">
             <tr>
-                <th><?php echo JText::_('COM_LOCALIZE_IMOVEL_FORM_LBL_IMVEL_ID'); ?></th>
-                <td><?php echo $this->item->id; ?></td>
-            </tr>
-            <tr>
-                <th><?php echo JText::_('COM_LOCALIZE_IMOVEL_FORM_LBL_IMVEL_STATE'); ?></th>
-                <td>
-                    <i class="icon-<?php echo ($this->item->state == 1) ? 'publish' : 'unpublish'; ?>"></i></td>
-            </tr>
-            <tr>
-                <th><?php echo JText::_('COM_LOCALIZE_IMOVEL_FORM_LBL_IMVEL_CREATED_BY'); ?></th>
-                <td><?php echo $this->item->created_by_name; ?></td>
-            </tr>
-            <tr>
-                <th><?php echo JText::_('COM_LOCALIZE_IMOVEL_FORM_LBL_IMVEL_NOME'); ?></th>
-                <td><?php echo $this->item->nome; ?></td>
-            </tr>
-            <tr>
-                <th><?php echo JText::_('COM_LOCALIZE_IMOVEL_FORM_LBL_IMVEL_VALOR'); ?></th>
-                <td><?php echo $this->item->valor; ?></td>
-            </tr>
-            <tr>
-                <th><?php echo JText::_('COM_LOCALIZE_IMOVEL_FORM_LBL_IMVEL_IMAGEM1'); ?></th>
-                <td><?php echo $this->item->imagem1; ?></td>
-            </tr>
-            <tr>
-                <th><?php echo JText::_('COM_LOCALIZE_IMOVEL_FORM_LBL_IMVEL_LEGENDA_IMG1'); ?></th>
-                <td><?php echo $this->item->legenda_img1; ?></td>
-            </tr>
-            <tr>
-                <th><?php echo JText::_('COM_LOCALIZE_IMOVEL_FORM_LBL_IMVEL_IMAGEM2'); ?></th>
-                <td><?php echo $this->item->imagem2; ?></td>
-            </tr>
-            <tr>
-                <th><?php echo JText::_('COM_LOCALIZE_IMOVEL_FORM_LBL_IMVEL_LEGENDA_IMG2'); ?></th>
-                <td><?php echo $this->item->legenda_img2; ?></td>
-            </tr>
-            <tr>
-                <th><?php echo JText::_('COM_LOCALIZE_IMOVEL_FORM_LBL_IMVEL_IMAGEM3'); ?></th>
-                <td><?php echo $this->item->imagem3; ?></td>
-            </tr>
-            <tr>
-                <th><?php echo JText::_('COM_LOCALIZE_IMOVEL_FORM_LBL_IMVEL_LEGENDA_IMG3'); ?></th>
-                <td><?php echo $this->item->legenda_img3; ?></td>
-            </tr>
-            <tr>
-                <th><?php echo JText::_('COM_LOCALIZE_IMOVEL_FORM_LBL_IMVEL_IMAGEM4'); ?></th>
-                <td><?php echo $this->item->imagem4; ?></td>
-            </tr>
-            <tr>
-                <th><?php echo JText::_('COM_LOCALIZE_IMOVEL_FORM_LBL_IMVEL_LEGENDA_IMG4'); ?></th>
-                <td><?php echo $this->item->legenda_img4; ?></td>
-            </tr>
-            <tr>
-                <th><?php echo JText::_('COM_LOCALIZE_IMOVEL_FORM_LBL_IMVEL_METRAGEM'); ?></th>
-                <td><?php echo $this->item->metragem; ?></td>
-            </tr>
-            <tr>
                 <th><?php echo JText::_('COM_LOCALIZE_IMOVEL_FORM_LBL_IMVEL_NUM_QUARTOS'); ?></th>
                 <td><?php echo $this->item->num_quartos; ?></td>
             </tr>
@@ -248,11 +190,14 @@ if (!$canEdit && JFactory::getUser()->authorise('core.edit.own', 'com_localize_i
             </tr>
             <tr>
                 <th><?php echo JText::_('COM_LOCALIZE_IMOVEL_FORM_LBL_IMVEL_IMOBILIARIA'); ?></th>
-                <td><?php echo $this->item->imobiliaria; ?></td>
-            </tr>
-            <tr>
-                <th><?php echo JText::_('COM_LOCALIZE_IMOVEL_FORM_LBL_IMVEL_IMOBILIARIA2'); ?></th>
-                <td><?php echo $this->item->imobiliaria2; ?></td>
+                <td>
+                    <?php
+                    echo $this->item->imobiliaria;
+                    if (!empty($this->item->imobiliaria2)) {
+                        echo "," . $this->item->imobiliaria2;
+                    }
+                    ?>
+                </td>
             </tr>
             <tr>
                 <th><?php echo JText::_('COM_LOCALIZE_IMOVEL_FORM_LBL_IMVEL_CARACTERISTICAS'); ?></th>
@@ -273,7 +218,9 @@ else:
 endif;
 ?>
 <script>
-//    jQuery(document).ready(function (e) {        
+//    jQuery(document).ready(function (e) {   
+    jQuery("#bfSubmitButton").addClass("btn btn-success");
+    jQuery(".bfCancelButton").addClass("btn btn-danger");
     jQuery.ajax({
         type: 'post',
         url: '<?= JUri::base() . 'ajaximovel.php' ?>',
@@ -284,17 +231,17 @@ endif;
         }
     });
 //    });
-    jQuery(".form-imovel .btn-success").click(function (e) {
-    e.stopPropagation();
+    jQuery("#bfSubmitButton").click(function (e) {
+        e.stopPropagation();
         jQuery.ajax({
-                type: 'post',
-                url: '<?= JUri::base() . 'ajaximovel.php' ?>',
-                data: {
-                    imovel: <?= $imovel; ?>,
-                    user: <?= $user->id; ?>,
-                    formulario: 1
-                }
-            });
+            type: 'post',
+            url: '<?= JUri::base() . 'ajaximovel.php' ?>',
+            data: {
+                imovel: <?= $imovel; ?>,
+                user: <?= $user->id; ?>,
+                formulario: 1
+            }
+        });
     });
     jQuery("#gostei").click(function () {
         if (jQuery(this).attr("like") == "default") {

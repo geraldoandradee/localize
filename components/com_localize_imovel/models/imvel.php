@@ -120,7 +120,7 @@ class Localize_imovelModelImvel extends JModelItem
 					$query = $db->getQuery(true);
 					$query
 							->select('nome')
-							->from('`#__localize_imovel`')
+							->from('`#__localize_empresa`')
 							->where('id = ' . $db->quote($db->escape($value)));
 					$db->setQuery($query);
 					$results = $db->loadObject();
@@ -144,13 +144,13 @@ class Localize_imovelModelImvel extends JModelItem
 					$db = JFactory::getDbo();
 					$query = $db->getQuery(true);
 					$query
-							->select('id')
-							->from('`#__localize_imovel`')
-							->where('construtora = ' . $db->quote($db->escape($value)));
+							->select('nome')
+							->from('`#__localize_empresa`')
+							->where('id = ' . $db->quote($db->escape($value)));
 					$db->setQuery($query);
 					$results = $db->loadObject();
 					if ($results) {
-						$textValue[] = $results->id;
+						$textValue[] = $results->nome;
 					}
 				}
 
@@ -169,13 +169,13 @@ class Localize_imovelModelImvel extends JModelItem
 					$db = JFactory::getDbo();
 					$query = $db->getQuery(true);
 					$query
-							->select('id')
-							->from('`#__localize_imovel`')
-							->where('construtora = ' . $db->quote($db->escape($value)));
+							->select('nome')
+							->from('`#__localize_empresa`')
+							->where('id = ' . $db->quote($db->escape($value)));
 					$db->setQuery($query);
 					$results = $db->loadObject();
 					if ($results) {
-						$textValue[] = $results->id;
+						$textValue[] = $results->nome;
 					}
 				}
 
