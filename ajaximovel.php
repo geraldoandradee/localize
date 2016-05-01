@@ -1,7 +1,6 @@
 <?php
-
-error_reporting(E_ALL);
-ini_set("display_errors", "On");
+//error_reporting(E_ALL);
+//ini_set("display_errors", "On");
 define('_JEXEC', 1);
 define('DS', DIRECTORY_SEPARATOR);
 define('JPATH_BASE', ObterEnderecoBase());
@@ -66,8 +65,8 @@ function gravarRegistro($idUser, $idImovel, $acesso, $like, $formulario) {
     $db = JFactory::getDbo();
     $query = $db->getQuery(true);
 
-    $columns = array('id_user', 'id_imovel', 'acesso', 'like', 'formulario');
-    $values = array($idUser, $idImovel, $acesso, $like, $formulario);
+    $columns = array('id_user', 'id_imovel', 'acesso');
+    $values = array($idUser, $idImovel, $acesso);
 
     // Prepare the insert query.
     $query

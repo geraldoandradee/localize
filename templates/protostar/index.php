@@ -167,74 +167,15 @@ if ($this->params->get('logoFile')) {
         <?php endif; ?>
         <div class="container">
             <div class="row" id="recomendados">
-                <div class="col-md-12">
-                    <h2>Recomendados para você!</h2>
-                </div>
-                <div class="col-md-3">
-                    <div class="recomendados_img">
-                        <img src="images/anuncio.jpg"/>
-                    </div>
-                    <div class="recomendados_titulo">
-                        <h3>Sobrado 300m² no Jd. Goiás</h3>
-                    </div>
-                    <div class="recomendados_texto">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac felis egestas, feugiat est ac, accumsan tellus.</p>
-                    </div>
-                    <div class="row recomendados_info">
-                        <div class="col-md-6 preco">R$ 550.000,00</div>
-                        <div class="col-md-6"><button type="button" class="btn btn-primary">Ver Detalhes</button></div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="recomendados_img">
-                        <img src="images/anuncio.jpg"/>
-                    </div>
-                    <div class="recomendados_titulo">
-                        <h3>Sobrado 300m² no Jd. Goiás</h3>
-                    </div>
-                    <div class="recomendados_texto">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac felis egestas, feugiat est ac, accumsan tellus.</p>
-                    </div>
-                    <div class="row recomendados_info">
-                        <div class="col-md-6 preco">R$ 550.000,00</div>
-                        <div class="col-md-6"><button type="button" class="btn btn-primary">Ver Detalhes</button></div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="recomendados_img">
-                        <img src="images/anuncio.jpg"/>
-                    </div>
-                    <div class="recomendados_titulo">
-                        <h3>Sobrado 300m² no Jd. Goiás</h3>
-                    </div>
-                    <div class="recomendados_texto">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac felis egestas, feugiat est ac, accumsan tellus.</p>
-                    </div>
-                    <div class="row recomendados_info">
-                        <div class="col-md-6 preco">R$ 550.000,00</div>
-                        <div class="col-md-6"><button type="button" class="btn btn-primary">Ver Detalhes</button></div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="recomendados_img">
-                        <img src="images/anuncio.jpg"/>
-                    </div>
-                    <div class="recomendados_titulo">
-                        <h3>Sobrado 300m² no Jd. Goiás</h3>
-                    </div>
-                    <div class="recomendados_texto">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac felis egestas, feugiat est ac, accumsan tellus.</p>
-                    </div>
-                    <div class="row recomendados_info">
-                        <div class="col-md-6 preco">R$ 550.000,00</div>
-                        <div class="col-md-6"><button type="button" class="btn btn-primary">Ver Detalhes</button></div>
-                    </div>
-                </div>
+                <?php if ($this->countModules('recomendacao')) : ?>
+                    <jdoc:include type="modules" name="recomendacao" style="none" />
+                <?php endif; ?>
             </div>
             <div class="row" id="anuncios">
                 <jdoc:include type="modules" name="anuncios-home" style="none" />
             </div>
         </div>
+
 
         <?php if ($this->countModules('position-7')) : ?>
             <div id="aside" class="span3">

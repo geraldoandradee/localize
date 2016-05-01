@@ -276,7 +276,7 @@ endif;
 //    jQuery(document).ready(function (e) {        
     jQuery.ajax({
         type: 'post',
-        url: '<?= JUri::base() . 'recomendar_imovel.php' ?>',
+        url: '<?= JUri::base() . 'ajaximovel.php' ?>',
         data: {
             imovel: <?= $imovel; ?>,
             user: <?= $user->id; ?>,
@@ -288,11 +288,11 @@ endif;
     e.stopPropagation();
         jQuery.ajax({
                 type: 'post',
-                url: '<?= JUri::base() . 'recomendar_imovel.php' ?>',
+                url: '<?= JUri::base() . 'ajaximovel.php' ?>',
                 data: {
                     imovel: <?= $imovel; ?>,
                     user: <?= $user->id; ?>,
-                    formulario: 5
+                    formulario: 1
                 }
             });
     });
@@ -300,11 +300,11 @@ endif;
         if (jQuery(this).attr("like") == "default") {
             jQuery.ajax({
                 type: 'post',
-                url: '<?= JUri::base() . 'recomendar_imovel.php' ?>',
+                url: '<?= JUri::base() . 'ajaximovel.php' ?>',
                 data: {
                     imovel: <?= $imovel; ?>,
                     user: <?= $user->id; ?>,
-                    like: 4
+                    like: 1
                 }
             });
             jQuery("#gostei img").attr("src", "<?= JUri::base() . "templates/protostar/images/like/like.png" ?>");
@@ -312,11 +312,11 @@ endif;
         } else if (jQuery(this).attr("like") == "gostei") {
             jQuery.ajax({
                 type: 'post',
-                url: '<?= JUri::base() . 'recomendar_imovel.php' ?>',
+                url: '<?= JUri::base() . 'ajaximovel.php' ?>',
                 data: {
                     imovel: <?= $imovel; ?>,
                     user: <?= $user->id; ?>,
-                    like: -5
+                    like: -1
                 }
             });
             jQuery("#gostei img").attr("src", "<?= JUri::base() . "templates/protostar/images/like/dislike.png" ?>");
@@ -324,7 +324,7 @@ endif;
         } else if (jQuery(this).attr("like") == "ngostei") {
             jQuery.ajax({
                 type: 'post',
-                url: '<?= JUri::base() . 'recomendar_imovel.php' ?>',
+                url: '<?= JUri::base() . 'ajaximovel.php' ?>',
                 data: {
                     imovel: <?= $imovel; ?>,
                     user: <?= $user->id; ?>,
